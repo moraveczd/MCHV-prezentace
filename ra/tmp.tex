@@ -1,0 +1,103 @@
+\documentclass[hyperref=unicode, presentation,10pt]{beamer}
+
+\usepackage[absolute,overlay]{textpos}
+\usepackage{array}
+\usepackage{graphicx}
+\usepackage{adjustbox}
+\usepackage{mhchem}
+\usepackage{ucs}
+\usepackage[utf8]{inputenc}
+
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+\usetikzlibrary{arrows}
+\usetikzlibrary{shapes.multipart}
+
+\PrerenderUnicode{ěščřžýáíéĚŠČŘŽÝÁÍÉďťňĎŤŇůúÚóÓ}
+
+\usepackage[czech]{babel}
+
+\mode<presentation>{\usetheme{default}}
+ \usecolortheme{crane}
+
+\setbeamertemplate{footline}[frame number]
+
+
+\begin{document}
+\title[Crisis] % (optional, only for long titles)
+{Ramanova spektroskopie}
+
+\author % (optional, for multiple authors)
+{Zdeněk Moravec, A12/316, hugo@chemi.muni.cz}
+
+\date{} %hide date on titlepage
+
+\subtitle{Metody chemické výzkumu}
+
+\frame{
+	\frametitle{Ramanův rozptyl}
+
+\begin{tikzpicture}
+\node at (9,10.2) {LASER};
+\draw [fill=black] (10,10) rectangle (8,9.5);
+\draw [thick,->] (10,9.75) -- (12,9.75);
+
+\draw [thick,<-] (8,9.3) -- (8,6.5);
+\node at (7.9,9) {I};
+\draw [thick,->] (8,6.5) -- (11.5,6.5);
+\node at (11.3,6.3) {f};
+\draw (8.3,6.8) -- (9.9,6.8);
+\draw (10,6.8) -- (11.3,6.8);
+\draw (9.9,6.8) -- (9.95,9);
+\draw (10,6.8) -- (9.95,9);
+
+
+\draw [fill=red,red] (12,11) rectangle (13,9);
+\node [red] at (12.5,11.2) {Vzorek};
+\draw [thick,->,red] (12.5,9) -- (12.5,7);
+\draw [thick,->,red] (12.5,9) -- (13.5,7);
+\draw [thick,->,red] (12.5,9) -- (11.5,7);
+\draw [thick,->,red] (12.5,9) -- (13.0,7);
+\draw [thick,->,red] (12.5,9) -- (12,7);
+
+\draw [thick,blue] (12.0,6.5) arc [radius=0.5, start angle=180, end angle=360];
+\draw [blue,fill=blue] (12.5,6.4) circle [radius=0.2];
+\draw [thick,->,blue] (13.2,6.3) -- (14.5,6.3);
+
+\draw [thick,<-] (15.0,9.3) -- (15.0,6.0);
+\node at (14.9,9.0) {I};
+\draw [thick,->] (15.0,6.0) -- (19,6.0);
+\node at (18.8,5.7) {f};
+
+\draw (17.15,6.1) -- (17.2,9.3);
+\draw (17.3,6.1) -- (17.25,9.3);
+
+\draw (16.5,6.1) -- (16.54,6.6);
+\draw (16.58,6.1) -- (16.54,6.6);
+
+\draw (16.0,6.1) -- (16.02,7.4);
+\draw (16.04,6.1) -- (16.02,7.4);
+
+\draw (15.3,6.1) -- (15.33,7.0);
+\draw (15.36,6.1) -- (15.33,7.0);
+
+\draw (17.85,6.1) -- (17.89,6.3);
+\draw (17.93,6.1) -- (17.89,6.3);
+
+\draw (18.35,6.1) -- (18.37,6.9);
+\draw (18.39,6.1) -- (18.37,6.9);
+
+\draw (15.2,6.1) -- (15.3,6.1);
+\draw (15.36,6.1) -- (16.0,6.1);
+\draw (16.04,6.1) -- (16.5,6.1);
+\draw (16.58,6.1) -- (17.15,6.1);
+\draw (17.3,6.1) -- (17.85,6.1);
+\draw (17.93,6.1) -- (18.35,6.1);
+\draw (18.39,6.1) -- (18.8,6.1);
+
+\node at (17.2,9.5) {Rayleigh};
+
+\end{tikzpicture}
+}
+
+\end{document}

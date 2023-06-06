@@ -1,0 +1,851 @@
+\documentclass[hyperref=unicode]{beamer}
+
+\usepackage[absolute,overlay]{textpos}
+\usepackage{graphicx}
+\usepackage{adjustbox}
+\usepackage{chemfig}
+\usepackage[version=4]{mhchem}
+\usepackage{wrapfig}
+\usepackage{multirow}
+\adjustboxset*{center}
+\usepackage{caption}
+\usepackage{chemformula}
+\usepackage{elements}
+
+%dělení slov
+\usepackage{ragged2e}
+\let\raggedright=\RaggedRight
+%konec dělení slov
+
+\usepackage{fontspec}
+\usepackage{unicode-math}
+
+\usepackage{polyglossia}
+\setdefaultlanguage{czech}
+
+\def\uv#1{„#1“}
+
+\mode<presentation>{\usetheme{Madrid}}
+\DefineNamedColor{named}{pozadi}{RGB}{200,200,200}
+\usecolortheme{crane}
+
+\setbeamertemplate{footline}[frame number]
+
+\addtobeamertemplate{frametitle}{
+	\let\insertframetitle\insertsectionhead}{}
+\addtobeamertemplate{frametitle}{
+	\let\insertframesubtitle\insertsubsectionhead}{}
+
+\makeatletter
+\CheckCommand*\beamer@checkframetitle{\@ifnextchar\bgroup\beamer@inlineframetitle{}}
+\renewcommand*\beamer@checkframetitle{\global\let\beamer@frametitle\relax\@ifnextchar\bgroup\beamer@inlineframetitle{}}
+\makeatother
+\setbeamercolor{section in toc}{fg=blue}
+\setbeamertemplate{section in toc shaded}[default][100]
+
+\title[Crisis] % (optional, only for long titles)
+{Infračervená spektroskopie}
+
+\author % (optional, for multiple authors)
+{Zdeněk Moravec, C12/316, hugo@chemi.muni.cz}
+
+\date{} %hide date on titlepage
+
+\subtitle{Metody chemické výzkumu}
+
+\begin{document}
+\frame{\titlepage}
+
+\section{Osnova}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+	\item Molekulová spektroskopie
+	\item Základní principy IR spektroskopie
+	\item Symetrie molekul
+	\item Měřící techniky
+	\begin{itemize}
+		\item FT-IR transmisní měření
+		\item ATR, DRIFT, PAS
+		\item TG/IR, GC/IR
+	\end{itemize}
+	\end{itemize}
+	\vfill
+}
+
+\section{Molekulová spektroskopie}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+	\item Studuje interakci elektromagnetického záření s~molekulami vzorku
+	\item Jde o kvalitativní i kvantitativní analytickou metodu
+	\item Metody molekulové spektroskopie
+	\begin{itemize}
+		\item Infračervená spektroskopie
+		\item Ramanova spektroskopie
+		\item Mikrovlnná spektroskopie
+	\end{itemize}
+	\end{itemize}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+	\item Soubor metod založených na využití těch vlastností molekul, které jsou spojeny s přítomností:
+	\begin{itemize}
+		\item kovalentních vazeb
+		\item koordinačních vazeb
+	\end{itemize}
+	\end{itemize}
+	\begin{center}
+	$\chemfig{H-\charge{0=\:}{N}(-[:60]H)(-[:300]H)}$
+	\hspace{40mm}
+	$\chemfig{F-B(-[:60]F)(-[:300]F)}$
+	$\chemfig{F-B(-[:120]F)(-[:240]F)(-N(-[:60]H)(-[:0]H)(-[:300]H))}$
+	\end{center}
+	\vfill
+}
+
+\section{Elektromagnetické záření}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+	\item Kombinace magnetického a elektrického vlnění (pole)
+	\item $E = h.f = \frac{hc}{\lambda} = hc \tilde{\nu}$
+	\begin{itemize}
+		\item E - energie záření
+		\item h - Planckova konstanta: $6,626 176(36).10^{-34} Js$
+		\item f - frekvence záření
+		\item c - rychlost světla: $2,997 924 58(01).10^8 m.s^{-1}$
+		\item $\lambda$ - vlnová délka
+		\item $\tilde{\nu}$ - vlnočet
+	\end{itemize}
+	\end{itemize}
+	\adjincludegraphics[width=320pt,valign=t]{../img/elmag.png}
+	\vfill
+}
+
+\subsection{Vlnová délka, frekvence, vlnočet, energie}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+	\item \emph{Vlnová délka} ($\lambda$) - dráha, kterou urazí vlna během jednoho kmitu. $1 \textrm{\r{A}} = 10^{-10} m = 0,1 nm$
+	\item \emph{Frekvence} (f) - počet kmitů vlny za 1 s. 1 Hz = 1 $\textrm{s}^{-1}$
+	\item \emph{Vlnočet} ($\tilde{\nu}$) - počet vln, připadající na dráhu 1 cm ve směru šíření vlny [cm$^{-1}$]
+	\item $E = h.f = \frac{hc}{\lambda} = hc \tilde{\nu}$
+	\end{itemize}
+
+	\adjincludegraphics[width=320pt,valign=b]{../img/elmag.png}
+	\vfill
+}
+
+\subsection{Spektrum elektromagnetického záření}
+\frame{
+	\frametitle{}
+	\vfill
+	\adjincludegraphics[width=320pt,valign=t]{../img/elmag-spek.png}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{tabular}{|p{2.2cm}|p{3cm}|p{2cm}|p{2cm}|}
+	\hline
+	& UV-VIS & IR & MW \\
+	& 50-800 nm & 1-100 $\mu$m & 1-10 mm \\
+	\hline
+	Elektronická
+	\newline spektroskopie & Absorpční UV-VIS
+	\newline Luminiscenční spektroskopie & & \\
+	\hline
+	Vibrační
+	\newline spektroskopie & Ramanova spektroskopie & Infračervená spektroskopie & \\
+	\hline
+	Rotační
+	\newline spektroskopie & Ramanova spektroskopie & & Mikrovlnná spektroskopie \\
+	\hline
+	\end{tabular}
+	\vfill
+}
+
+\section{Základní principy IR spektroskopie}
+\frame{
+	\frametitle{}
+	\vfill
+	\adjincludegraphics[width=250pt,valign=t]{../img/el-prechody.png}
+	\vfill
+}
+
+\subsection{Vibrace chemických vazeb}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+	\item Během vibrace vazby dochází k přechodu systému na jinou energetickou hladinu.
+	\item Energie (frekvence) vibrace závisí na síle vazby a hmotnosti atomů, které vazbu tvoří.
+	\item $\nu = \frac{1}{2\pi}\sqrt{\frac{k}{\mu}}; \mu = \frac{m_1m_2}{m_1 + m_2}$
+	\item $\nu$ - frekvence vibrace; k - silová konstanta; $\mu$ - redukovaná hmotnost; $m_1,m_2$ - hmotnosti atomů
+	\item \textit{Silová konstanta vazby (k)} - závisí na hmotnosti atomů, vazebné energii a řádu vazby.
+	\item \textit{Redukovaná hmotnost ($\mu$)} - umožňuje řešit fyzikální \textit{problém dvou těles}, jako by se jednalo o těleso jedno.\footnotemark
+	\end{itemize}
+	\begin{center}
+		\adjincludegraphics[width=3cm]{../img/oscillator.png}
+	\end{center}
+	\vfill
+	\footnotetext[1]{\href{https://scienceworld.wolfram.com/physics/Two-BodyProblem.html}{Two-Body Problem}}
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+	\item Přechod mezi základní a 1. excitovanou hladinou se nazývá \emph{základní (fundamentální) vibrace}.
+	\item Pokud dochází k přechodům na vyšší hladinu, jedná se o tzv. \emph{vyšší harmonické přechody (overtony)}. Jejich frekvence jsou \em přibližně \em násobkem fundamentální frekvence (energetické hladiny se postupně zhušťují).
+	\item Pokud dojde k současné změně dvou vibračních stav molekuly jedná se o \emph{kombinační přechody}.
+	\item \textbf{Valenční vibrace} – dochází ke změně mezijaderné vzdálenosti.
+	\item \textbf{Deformační vibrace} – dochází ke změně vazebného úhlu.
+	\end{itemize}
+	\vfill
+}
+
+\subsection{Vibrace ve víceatomové molekule}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+	\item Víceatomové molekuly můžeme popsat jako soustavy hmotných bodů.
+	\item Výsledná vibrace je rovna součtu normálních vibrací.
+	\item Počet normálních vibrací je roven počtu vibračních stupňů volnosti. Pro nelineární  molekulu o N atomech je počet vibrací roven 3N-6, u lineární je to 3N-5.
+	\end{itemize}
+	\vfill
+}
+
+\subsection{Vibrace v lineární  molekule}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+	\item Lineární molekula -- \ce{CO2} -- N = 3
+	\item 3N-5 = 3x3-5 = 4
+	\end{itemize}
+	\begin{figure}
+	\includegraphics[scale=0.4]{../img/CO2-vibration.png}
+
+	a,b) valenční vibrace; c,d) deformační vibrace
+	\end{figure}
+	\vfill
+}
+
+\subsection{Vibrace v nelineární  molekule}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+	\item Nelineární molekula -- \ce{H2O} -- N = 3
+	\item 3N-6 = 3x3-6 = 3
+	\end{itemize}
+	\begin{figure}
+	\includegraphics[scale=0.4]{../img/water-vibrations.png}
+
+	a,b) valenční vibrace; c) deformační vibrace
+	\end{figure}
+	\vfill
+}
+
+\subsection{Symetrie molekul}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+	\item Struktura a symetrie molekuly je velmi důležitá pro interpretaci molekulových spekter.
+	\item \textbf{Operace symetrie} - geometrická operace, jejímž provedením dostaneme objekt do polohy nerozlišitelné od výchozí.
+	\item \textbf{Prvek symetrie} - bod(y), jejichž poloha se v průběhu provádění operace symetrie nemění.
+	\item U molekul existuje pět prvků symetrie.
+	\end{itemize}
+
+	\begin{tabular}{|l|l|l|}
+	\hline
+	\textbf{Operace symetrie} & \textbf{Symbol} & \textbf{Prvek symetrie} \\
+	\hline
+	Identita & E & Celý objekt \\
+	\hline
+	Rotace & $C_n$ & Rotační osa \\
+	\hline
+	Zrcadlení & $\sigma$ & Rovina symetrie \\
+	\hline
+	Inverze & i & Střed symetrie \\
+	\hline
+	Nevlastní osa & $S_n$ & Rotačně-reflexní osa \\
+	\hline
+	\end{tabular}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+	\item Každou molekulu lze na základě její symetrie zařadit do jedné z \emph{bodových grup symetrie}.\footnote[frame]{\href{http://plus.maths.org/content/os/issue48/package/index}{Teacher package: Group theory}}
+	\item \emph{Grupa} – množina objektů, jejichž individuální vlastnosti jsou podmíněny navzájem.\footnote[frame]{\href{https://doi.org/10.1021/ed044p128}{White, J.E. \emph{J. Chem. Ed.} \textbf{1967}, \emph{44}, 128-135. An Introduction to Group Theory for Chemists}}
+	\item Kombinováním dvou libovolných prvků grupy získáme prvek, který náleží do stejné grupy.
+	\end{itemize}
+	\begin{center}
+	\includegraphics[width=10cm]{../img/point-group.png}
+	\end{center}
+	\vfill
+}
+
+\subsection{Bodové grupy symetrie}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+	\item Množina prvků symetrie, jejichž operace ponechávají alespoň jeden bod tělesa nepohyblivý.
+	\item Příslušnost molekuly k bodové grupě se určuje pomocí prvků symetrie dané molekuly.
+	\item Bodové grupy se označují pomocí \emph{Schönfliesovy symboliky}.
+	\end{itemize}
+	\hrule
+	\begin{itemize}
+	\item $C_1$: tato grupa obsahuje pouze identitu, CHFClBr
+	\item $C_i$: E, i. Např. FClHC-CHClF
+	\item $C_s$: E, s. Např. \ce{CH2ClF}
+	\item $C_n$: E, C$_n$; \ce{H2O2}
+	\item $C_{nv}$: E, C$_n$, n $\sigma_v$; \ce{H2O}, \ce{NH3}
+	\item $C_{nh}$: E, C$_n$, n $\sigma_h$; \ce{H3BO3}, \emph{trans}-1,2-dichlorethen
+	\end{itemize}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\begin{center}
+	\includegraphics[width=0.95\textwidth]{../img/ammonia.jpg}
+	\end{center}
+}
+
+\frame{
+	\frametitle{}
+	\begin{center}
+		\includegraphics[width=0.5\textwidth]{../img/Boric-acid-2D.png}
+	\end{center}
+}
+
+\frame{
+	\frametitle{}
+	\begin{columns}[t]
+	\column{.8\textwidth}
+	\vfill
+	\begin{itemize}
+	\item $D_n$: E, C$_n$, n C$_2$; $D_1$ = $C_2$
+	\item $D_{nh}$: E, C$_n$, n C$_2$, $\sigma_h$, pokud je n sudé, má grupa i střed symetrie; $D_{2h}$: naftalen; $D_{3h}$: \ce{BF3}
+	\item $D_{nd}$: E, C$_n$, n C$_2$, $\sigma_d$, pokud je n liché, má grupa i střed symetrie
+	\item \emph{Tetraedrické} - $T$, $T_d$, $T_h$
+	\begin{itemize}
+		\item $T_d$: E, 4 C$_3$, 3 C$_2$, 6 $\sigma_d$
+		\item \ce{CH4}, \ce{SO4^{2-}}
+	\end{itemize}
+	\item \emph{Oktaedrické} - $O$, $O_h$
+	\begin{itemize}
+		\item $O_h$: E, 3 S$_4$, 3 C$_4$, 6 C$_2$, 4 S$_6$, 4 C$_3$, 3 $\sigma_h$, 6 $\sigma_d$, i
+		\item \ce{SbF6}, \ce{Mo(CO)6}
+	\end{itemize}
+	\item \emph{Ikosaedrická} -$I_h$
+	\begin{itemize}
+		\item $I_h$: E, 6 S$_{10}$, 10 S$_6$, 6 C$_5$, 10 C$_3$, 15 C$_2$ and 15 $\sigma$
+		\item \ce{B12}, \ce{C60}
+	\end{itemize}
+	\end{itemize}
+	\vfill
+	\column{.2\textwidth}
+	\begin{center}
+	\includegraphics[width=25mm]{../img/cubic-point-groups.png}
+	\end{center}
+	\end{columns}
+
+}
+
+\frame{
+	\frametitle{}
+	\begin{center}
+		\includegraphics[width=0.9\textwidth]{../img/Dnh.jpg}
+	\end{center}
+}
+
+\frame{
+	\frametitle{}
+	\begin{center}
+		\includegraphics[width=0.6\textwidth]{../img/Methan.png}
+	\end{center}
+}
+
+\frame{
+	\frametitle{}
+	\begin{center}
+		\includegraphics[width=0.7\textwidth]{../img/Al-H2O.png}
+	\end{center}
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+	\item \emph{Úplná rotační grupa} -$R_h$ - Obsahuje nekonečně mnoho os se všemi možnými hodnotami četnosti. Osy se protínají ve středu symetrie. Dále obsahuje nekonečně mnoho rovin symetrie, které procházejí středem symetrie.
+	\end{itemize}
+	\begin{center}
+	\includegraphics[width=5cm]{../img/spherical.png}
+	\end{center}
+	\vfill
+}
+
+\subsection{Dipólový moment}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+	\item Vektor popisující rozložení elektrického náboje v molekule.
+	\item Výsledný dipólmoment získáme vektorovým součtem dipólmomentů jednotlivých vazeb.
+	\end{itemize}
+\begin{columns}
+\column{0.6\textwidth}
+\begin{center}
+\includegraphics[width=5cm]{../img/water-elpot.png}
+\end{center}
+
+\column{0.4\textwidth}
+\begin{center}
+\begin{picture}(0,0)
+\put(0,0){O}
+\put(23,-30){H}
+\put(-23,-30){H}
+\thicklines
+\put(4,-1){\vector(-1,-1){20}}
+\put(4,-1){\vector(1,-1){20}}
+\put(4,-1){\vector(0,-1){40}}
+\thinlines
+\put(24,-21){\line(-1,-1){20}}
+\put(-16,-21){\line(1,-1){20}}
+\end{picture}
+\end{center}
+\end{columns}
+	\vfill
+}
+
+\subsection{Absorpce infračerveného záření}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+	\item Aby mohla molekula absorbovat infračervené záření musí během vibrace docházet ke změně dipólového momentu.
+	\item Při absorpci dochází ke změně amplitudy vibrace, frekvence zůstává nezměněna.
+	\item Intenzita absorpčních pásu je úměrná druhé mocnině změny dipólového momentu.
+	\item Absorpcí infračerveného záření molekulami vznikají pásová spektra.
+	\end{itemize}
+	\vfill
+}
+
+\subsection{Infračervená spektroskopie}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+	\item  NIR (0,7 -- 2,5 $\mu$m; 14 000 - 4 000 cm$^{-1}$) - infračervená spektroskopie v blízké oblasti
+	\item  MIR (2,5 -- 25 $\mu$m; 4 000 - 400 cm$^{-1}$) - infračervená spektroskopie ve střední oblasti
+	\item  FIR (25 -- 1000 $\mu$m; 400 - 10 cm$^{-1}$) - infračervená spektroskopie ve vzdálené oblasti
+	\end{itemize}
+	\vfill
+}
+
+\subsection{Absorpční spektrum}
+\frame{
+	\frametitle{}
+	\vfill
+	\adjincludegraphics[width=300pt,valign=l]{../img/spectrum.png}
+	\begin{textblock*}{1cm}[1,1](55mm,65mm)
+	\includegraphics[width=80pt]{../img/spectrum-struct.png}
+	\end{textblock*}
+	\begin{itemize}
+	\item Absorpční spektrum indiga
+	\end{itemize}
+	\vfill
+}
+
+\subsection{Měřící techniky}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+	\item  FT-IR - transmise, ATR
+	\item  DRIFT, IRRAS
+	\item TG-IR, GC-IR
+	\end{itemize}
+	\vfill
+}
+
+\section{Infračervený spektrometr}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+	\item Disperzní – za vzorkem je umístěn monochromátor (mřížka), který postupně propouští jednotlivé vlnové délky na detektor.
+	\item Nedisperzní – využívá monochromatické zdroje záření.
+	\item Interferometrický spektrometr (FT-IR)
+	\begin{itemize}
+	\item neobsahuje monochromátor, ale interferometr (Michelsonův interferometr)
+	\item celé spektrum se snímá najednou a získaný interferogram je nutné zpracovat pomocí Fourierovy transformace.
+	\item je citlivější než jiné typy spektrometrů.
+	\end{itemize}
+	\end{itemize}
+	\vfill
+}
+
+\subsection{Zdroj infračerveného záření}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+	\item \emph{Nernstova lampa} – lampa s žhavenou keramickou tyčinkou
+	\item \emph{Globar}
+	\begin{itemize}
+	\item tyčinka z karbidu křemíku (SiC) vyhřívaná na teplotu 1000-1400 \textdegree C.
+	\item keramická tyčinka omotaná odporovým drátem
+	\item nejběžnější zdroj záření pro FT-IR spektrometry
+	\end{itemize}
+	\item \emph{IR LED} – diody z III/V polovodičů, poskytují monochromatické záření.
+	\item \emph{IR lasery} – plynové nebo pevnolátkové lasery, zdroje monochromatického záření.
+	\end{itemize}
+	\begin{center}
+		\adjincludegraphics[width=2.5cm,valign=l]{../img/globar.jpg}
+	\end{center}
+	\vfill
+}
+
+\subsection{Michelsonův interferometr}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+	\item Autorem je americký fyzik Albert A. Michelson.
+	\item Skládá se z beamsplitteru a dvou zrcadel.\footnote[frame]{\url{http://blockeng.com/technology/ftirtechnology.html}}
+	\item Jedno ze zrcadel se pohybuje konstantní rychlostí po dráze kolmé k jeho ploše.
+	\item Interferometr moduluje vstupující záření plynulou změnou rozdílu délky drah paprsků.\footnote[frame]{\href{https://www.youtube.com/watch?v=UA1qG7Fjc2A}{Interferometer -- animation}}
+	\end{itemize}
+	\begin{figure}
+		\adjincludegraphics[width=0.35\textwidth]{../img/Michelson_Interferometer.jpg}
+	\end{figure}
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+
+Beamsplitter (BS) rozděluje paprsek ze zdroje na dva stejné paprsky. Jeden je odražen na nepohyblivé zrcadlo (Z1), od kterého se odrazí zpět. Druhý projde beamsplitterem a dopadne na pohyblivé zdrcadlo (Z2). Oba paprsky dopadnou zpět na BS, kde interferují a výsledný paprsek je znovu zčásti odražen k detektoru a z části projde BS směrem ke zdroji. Intenzita výsledného paprsku je závislá na rozdílu vzdáleností obou zrcadel od BS.
+
+\begin{tikzpicture}
+\draw[line width=0.5mm, red] (2,1) circle (0.5);
+\node[red] at (2,1.7) {Zdroj};
+\node at (4.45,3.3) {Z1};
+\node at (7.4,0.75) {Z2};
+
+\draw[line width=0.5mm,gray,fill=gray] (5.7,2) -- (6,2) -- (4.3,0) -- (4,0) -- (5.7,2);
+
+\draw[line width=0.5mm,green,fill=green] (5.7,3) -- (5.7,2.7) -- (3,2.7) -- (3,3) -- (5.7,3);
+\draw[line width=0.5mm,green,fill=green] (6.7,2) -- (7,2) -- (7,-0.5) -- (6.7,-0.5) -- (6.7,2);
+\draw[line width=0.5mm,black,<->] (6.2,-0.8) -- (7.5,-0.8);
+
+\draw[line width=0.5mm,red,->] (2,1) -- (4.8,1);
+\draw[line width=0.5mm,red,<->] (4.8,2.7) -- (4.8,1);
+\draw[line width=0.5mm,red,<->] (6.7,1) -- (5.15,1);
+
+\draw[line width=0.8mm,red,->] (5.15,1) -- (5.15,-1.5);
+
+\end{tikzpicture}
+	\vfill
+}
+
+\subsection{Detektory}
+\frame{
+	\frametitle{}
+	\vfill
+	Nejčastěji se využívají pyroelektrické detektory.
+	\begin{itemize}
+	\item \emph{DLaTGS}
+	\begin{itemize}
+	\item triglycinsulfát dopovaný L-alaninem
+	\item pyroelektrický detektor (krystal, po dopadu záření dojde k jeho ohřátí a tím vzniku elektrického napětí na povrchu krystalu)
+	\end{itemize}
+	\item \emph{MCT}
+	\begin{itemize}
+	\item mercury/cadmium/telluride
+	\item fotovodivostní detektor (dioda)
+	\item citlivější než DLaTGS
+	\item vyžaduje chlazení na teplotu kapalného dusíku
+	\end{itemize}
+	\end{itemize}
+	\begin{figure}
+		\adjincludegraphics[height=.3\textheight]{../img/detector.png}
+	\end{figure}
+	\vfill
+}
+
+\section{Měřící techniky}
+\subsection{FT-IR}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+	\item  Nejběžnější měřící technika
+	\item Podle úpravy vzorku rozlišujeme měření v transmisním módu a ATR
+	\item Spektrometr neobsahuje monochromátor, ale interferometr
+	\item Celé spektrum se snímá najednou, získáme interferogram, který je nutné zpracovat pomocí Fourierovy transformace
+	\end{itemize}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\adjincludegraphics[width=11cm,valign=l]{../img/ftir.png}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\adjincludegraphics[width=11cm,valign=l]{../img/tensor.png}
+	\vfill
+}
+
+\subsection{Transmisní měření}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+	\item  Lze měřit pevné látky, kapaliny i plyny
+	\item Pevné látky měříme ve formě KBr tablet (1-3 hm. \% v KBr) nebo jako suspenze v Nujolu
+	\item Kapaliny měříme jako tenký film mezi okny z vhodného materiálu (KBr, KRS, NaCl, ...)
+	\end{itemize}
+	\adjincludegraphics[width=300pt,valign=l]{../img/kbr-pellets.png}
+	\vfill
+}
+
+\subsection{Transmisní měření - Nujol}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+	\item Nujol - směs alkanů s dlouhý řetězcem.
+	\end{itemize}
+	\adjincludegraphics[width=300pt,valign=l]{../img/nujol.png}
+	\vfill
+}
+
+\subsection{Transmisní měření - plynné vzorky}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+	\item Plyny se měří v plynových kyvetách, ty jsou konstruované tak, aby dráha paprsku byla co nejdelší
+	\item Protože v plynném skupenství existují pouze slabé interakce mezi částicemi lze naměřit čistě rotační i rotačně-vibrační spektra
+	\end{itemize}
+	\adjincludegraphics[width=90mm,valign=l]{../img/water.png}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{center}
+		\adjincludegraphics[width=0.5\textwidth]{../img/IFS-125HR.jpg}
+	\end{center}
+	\vfill
+}
+
+\subsection{ATR}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+	\item ATR - Attenuated Total Reflection
+	\item Krystaly jsou z diamantu, ZnSe, Ge, KRS-5 (směs TlBr a TlI) nebo křemíku
+	\item Vzorek se přitlačí vysokým tlakem k měřícímu krystalu
+	\item Paprsek se pohybuje po povrchu vzorku (0,5 - 5 $\mu$m)
+	\end{itemize}
+	\vfill
+	\adjincludegraphics[width=180pt,valign=b]{../img/atr.png}
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{tabular}{|p{3cm}|c|p{5cm}|}
+	\hline
+	Materiál krystalu & Index lomu & Použití \\
+	\hline
+	Germanium & 4 & Vhodné pro většinu vzorků. \\
+	\hline
+	Křemík & 3,4 & Odolný vůči zásaditým roztokům. \\
+	\hline
+	AMTIR (speciální skla pro IR) & 2,5 & Odolné vůči kyselým roztoků \\
+	\hline
+	ZnSe & 2,4 & Vhodné pro většinu vzorků. \\
+	\hline
+	Diamant & 2,4 & Vhodné pro většinu vzorků, i pro velmi tvrdé nebo agresivní látky. \\
+	\hline
+	\end{tabular}
+	\vfill
+}
+
+\subsection{IRRAS}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+	\item IRRAS - IR Reflection Absorption Spectroscopy
+	\item Metoda vhodná pro tenké vrstvy nanesené na kovových materiálech nebo nasorbované látky na materiálech
+	\item Pro zvýšení citlivosti se využívá polarizovaného záření
+	\end{itemize}
+	\adjincludegraphics[width=200pt,valign=l]{../img/irras.png}
+	\vfill
+}
+
+\subsection{DRIFTS}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+	\item DRIFTS - Diffuse Reflectance Infrared Fourier Transform Spectroscopy
+	\item Tato technika je vhodná pro měření malých částic nebo hrubých povrchů
+	\item Využívá rozptylu IR záření
+	\item Rozptýlené záření je pomocí kulového zrcadla odráženo na detektor
+	\item Práškové vzorky se měří v kelímcích, pevné vzorky se obrousí abrasivem (SiC) a měří se částice zachycené na abrasivu
+	\end{itemize}
+	\adjincludegraphics[width=52mm,valign=l]{../img/drifts.png}
+	\vfill
+}
+
+\subsection{Coupling TGA/IR}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+	\item TGA - termogravimetrická analýza
+	\item Plyny vznikající během degradace vzorku vedeme do měřící cely a pomocí IR spektroskopie stanovíme jejich složení
+	\item Během transportu plynů z pece do měřící cely dochází k velkému zředění plynu, proto je nutné používat citlivější detektory (MCT)
+	\end{itemize}
+	\adjincludegraphics[width=10cm,valign=l]{../img/tg-irFoto.jpg}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\adjincludegraphics[width=11cm,valign=l]{../img/tg-ir.png}
+	\vfill
+}
+
+\subsection{Coupling TGA/GC}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+	\item GC - plynová chromatografie
+	\item Méně citlivé než GC/MS, ale umožňuje analýzu stereoizomerů.
+	\item Interferogramy je nutné snímat v krátkých časových intervalech
+	\end{itemize}
+	\adjincludegraphics[width=10cm,valign=l]{../img/gc-ir.jpg}
+	\vfill
+}
+
+\section{Kvantitativní analýza}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+	\item \emph{Lambert-Beerův zákon} -- $A_\lambda = \epsilon_\lambda l c$
+	\begin{itemize}
+		\item $A_\lambda$ - absorbance vzorku při vlnové délce $\lambda$
+		\item $\epsilon_\lambda$ - absorpční koeficient při vlnové délce $\lambda$. Je charakteristický pro každou sloučeninu.
+		\item l - délka kyvety
+		\item c - koncentrace vzorku
+	\end{itemize}
+	\item Pro stanovení koncentrace se využívá \emph{kalibrační křivka}.
+	\end{itemize}
+	\vfill
+}
+
+\section{Využití IR spektroskopie}
+\subsection{Chemie}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+	\item Identifikace sloučenin srovnáním spekter s databází
+	\item Kontrola čistoty připravených produktů, výhodou metody je její vysoká citlivost
+	\item Kvalitativní a kvantitativní analýza polymerů, analýza degradačních produktů
+	\item Monitorování polymerizačních reakcí
+	\item Analýza povrchových vrstev s využitím ATR
+	\item Kvantitativní analýza - Lambert-Beerův zákon:
+	\begin{itemize}
+		\item Plyny: \scalebox{1.2}{$A=\frac{p \epsilon l}{RT}$}
+		\item Kapaliny: $A=\epsilon cl$
+		\item Je nutné zvolit vhodný pás - vysoký absorpční koeficient, bez překryvu s okolními pásy, symetrický a vykazující lineární závislost intenzity na koncentraci
+	\end{itemize}
+	\end{itemize}
+	\vfill
+}
+
+\subsection{Restaurování a konzervování uměleckých děl}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+	\item Výhodou IR spektroskopie je nízká spotřeba vzorku, příp. nedestruktivnost metody, při použití bezkontaktního spektrometru.
+	\end{itemize}
+	\adjincludegraphics[scale=0.4]{../img//nova-contactless.png}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+	\item Rutinně lze provést analýzy pigmentů, pojiv, organických složek (dřevěné rámy, povrchové úpravy, apod.)
+	\item Mezi speciální aplikace patří např. datování dřeva, které může být pro mladší dřevěné předměty podstatně přesnější než datování pomocí $^{14}C$.
+	\item FT-IR mikroskop se lze využít k analýze nábrusů a identifikaci složení a stratigrafie vrstev
+	\end{itemize}
+	\adjincludegraphics[scale=0.7]{../img//mikroskop.jpg}
+	\vfill
+}
+
+\subsection{Biologie}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+	\item IR spektrosokopii lze využít ke studiu biologických systémů, tzn. lipidů, proteinů, peptidů, biomembrán, nukleových kyselin, tkání, buněk, atd.
+	\item U fosfolipidů lze stanovit konformaci řetězce a tím získat informace o uspořádání v buňce
+	\item IR spektra proteinů obsahují výrazné absorpční pásy amidové skupiny, podle jejich vlnočtu a intenzity lze určit konformaci a sekundární strukturu (dekonvolucí a fitováním pásů)
+	\end{itemize}
+	\adjincludegraphics[scale=0.4]{../img//amide-IR.png}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+	\item Spektra nukleových kyselin poskytují informace o konformaci hlavního řetězce kyseliny a o párování bází
+	\item IR spektra lze využít i pro diagnostiku nádorů, např. sledováním závislosti polohy pásu deformační vibrace methylenové skupiny na tlaku lze odlišit zdravou a rakovinovou tkáň
+	\end{itemize}
+		\adjincludegraphics[scale=0.4]{../img//pressure-dependence.png}
+	\vfill
+}
+
+\end{document}
