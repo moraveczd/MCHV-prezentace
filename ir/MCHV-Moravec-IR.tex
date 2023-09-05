@@ -126,7 +126,10 @@
 		\item $\tilde{\nu}$ - vlnočet
 	\end{itemize}
 	\end{itemize}
-	\adjincludegraphics[width=320pt,valign=t]{../img/elmag.png}
+	\begin{figure}
+		\adjincludegraphics[width=.8\textwidth]{../img/elmag.png}
+		\caption*{Složky elektromagnetického záření.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Onde_electromagnetique.svg}{SuperManu/Commons}}}
+	\end{figure}
 	\vfill
 }
 
@@ -141,7 +144,10 @@
 	\item $E = h.f = \frac{hc}{\lambda} = hc \tilde{\nu}$
 	\end{itemize}
 
-	\adjincludegraphics[width=320pt,valign=b]{../img/elmag.png}
+	\begin{figure}
+		\adjincludegraphics[width=.8\textwidth]{../img/elmag.png}
+		\caption*{Složky elektromagnetického záření.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Onde_electromagnetique.svg}{SuperManu/Commons}}}
+	\end{figure}
 	\vfill
 }
 
@@ -149,7 +155,10 @@
 \frame{
 	\frametitle{}
 	\vfill
-	\adjincludegraphics[width=320pt,valign=t]{../img/elmag-spek.png}
+	\begin{figure}
+		\adjincludegraphics[width=.8\textwidth]{../img/elmag-spek.png}
+		\caption*{Elektromagnetické spektrum.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:EM_Spectrum_Properties_edit.svg}{Inductiveload, NASA/Commons}}}
+	\end{figure}
 	\vfill
 }
 
@@ -176,13 +185,6 @@
 }
 
 \section{Základní principy IR spektroskopie}
-\frame{
-	\frametitle{}
-	\vfill
-	\adjincludegraphics[width=250pt,valign=t]{../img/el-prechody.png}
-	\vfill
-}
-
 \subsection{Vibrace chemických vazeb}
 \frame{
 	\frametitle{}
@@ -236,9 +238,7 @@
 	\item 3N-5 = 3x3-5 = 4
 	\end{itemize}
 	\begin{figure}
-	\includegraphics[scale=0.4]{../img/CO2-vibration.png}
-
-	a,b) valenční vibrace; c,d) deformační vibrace
+		\includegraphics[width=.8\textwidth]{../img/CO2.png}
 	\end{figure}
 	\vfill
 }
@@ -252,9 +252,7 @@
 	\item 3N-6 = 3x3-6 = 3
 	\end{itemize}
 	\begin{figure}
-	\includegraphics[scale=0.4]{../img/water-vibrations.png}
-
-	a,b) valenční vibrace; c) deformační vibrace
+		\includegraphics[width=.8\textwidth]{../img/water-struct.png}
 	\end{figure}
 	\vfill
 }
@@ -298,9 +296,9 @@
 	\item \emph{Grupa} – množina objektů, jejichž individuální vlastnosti jsou podmíněny navzájem.\footnote[frame]{\href{https://doi.org/10.1021/ed044p128}{White, J.E. \emph{J. Chem. Ed.} \textbf{1967}, \emph{44}, 128-135. An Introduction to Group Theory for Chemists}}
 	\item Kombinováním dvou libovolných prvků grupy získáme prvek, který náleží do stejné grupy.
 	\end{itemize}
-	\begin{center}
-	\includegraphics[width=10cm]{../img/point-group.png}
-	\end{center}
+	\begin{figure}
+		\includegraphics[width=.9\textwidth]{../img/point-group.png}
+	\end{figure}
 	\vfill
 }
 
@@ -327,16 +325,17 @@
 
 \frame{
 	\frametitle{}
-	\begin{center}
-	\includegraphics[width=0.95\textwidth]{../img/ammonia.jpg}
-	\end{center}
+	\begin{figure}
+		\includegraphics[width=0.95\textwidth]{../img/ammonia.jpg}
+		\caption*{Operace symetrie v molekule amoniaku.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Defining_Each_Projection_Elements_.jpg}{Prasongm/Commons}}}
+	\end{figure}
 }
 
 \frame{
 	\frametitle{}
-	\begin{center}
+	\begin{figure}
 		\includegraphics[width=0.5\textwidth]{../img/Boric-acid-2D.png}
-	\end{center}
+	\end{figure}
 }
 
 \frame{
@@ -375,16 +374,21 @@
 
 \frame{
 	\frametitle{}
-	\begin{center}
-		\includegraphics[width=0.9\textwidth]{../img/Dnh.jpg}
-	\end{center}
+	\textbf{Dihedrální bodové grupy symetrie}
+	\begin{itemize}
+		\item Značí se D$_{nh}$.
+		\item Obsahují E, C$_n$, n C$_2$ a $\sigma_h$
+	\end{itemize}
+	\begin{figure}
+		\includegraphics[width=0.6\textheight]{../img/Dnh.png}
+	\end{figure}
 }
 
 \frame{
 	\frametitle{}
-	\begin{center}
+	\begin{figure}
 		\includegraphics[width=0.6\textwidth]{../img/Methan.png}
-	\end{center}
+	\end{figure}
 }
 
 \frame{
@@ -415,28 +419,11 @@
 	\item Vektor popisující rozložení elektrického náboje v molekule.
 	\item Výsledný dipólmoment získáme vektorovým součtem dipólmomentů jednotlivých vazeb.
 	\end{itemize}
-\begin{columns}
-\column{0.6\textwidth}
-\begin{center}
-\includegraphics[width=5cm]{../img/water-elpot.png}
-\end{center}
 
-\column{0.4\textwidth}
-\begin{center}
-\begin{picture}(0,0)
-\put(0,0){O}
-\put(23,-30){H}
-\put(-23,-30){H}
-\thicklines
-\put(4,-1){\vector(-1,-1){20}}
-\put(4,-1){\vector(1,-1){20}}
-\put(4,-1){\vector(0,-1){40}}
-\thinlines
-\put(24,-21){\line(-1,-1){20}}
-\put(-16,-21){\line(1,-1){20}}
-\end{picture}
-\end{center}
-\end{columns}
+	\begin{figure}
+		\includegraphics[width=5cm]{../img/Dipoli_acqua.png}
+		\caption*{Dipólový moment molekuly vody.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Dipoli_acqua.png}{Riccardo Rovinetti/Commons}}}
+	\end{figure}
 	\vfill
 }
 
@@ -512,20 +499,27 @@
 \frame{
 	\frametitle{}
 	\vfill
-	\begin{itemize}
-	\item \emph{Nernstova lampa} – lampa s žhavenou keramickou tyčinkou
-	\item \emph{Globar}
-	\begin{itemize}
-	\item tyčinka z karbidu křemíku (SiC) vyhřívaná na teplotu 1000-1400 \textdegree C.
-	\item keramická tyčinka omotaná odporovým drátem
-	\item nejběžnější zdroj záření pro FT-IR spektrometry
-	\end{itemize}
-	\item \emph{IR LED} – diody z III/V polovodičů, poskytují monochromatické záření.
-	\item \emph{IR lasery} – plynové nebo pevnolátkové lasery, zdroje monochromatického záření.
-	\end{itemize}
-	\begin{center}
-		\adjincludegraphics[width=2.5cm,valign=l]{../img/globar.jpg}
-	\end{center}
+	\begin{columns}
+		\begin{column}{.7\textwidth}
+			\begin{itemize}
+				\item \emph{Nernstova lampa} – lampa s žhavenou keramickou tyčinkou
+				\item \emph{Globar}
+				\begin{itemize}
+					\item tyčinka z karbidu křemíku (SiC) vyhřívaná na teplotu 1000-1400 \textdegree C.
+					\item keramická tyčinka omotaná odporovým drátem
+					\item nejběžnější zdroj záření pro FT-IR spektrometry
+				\end{itemize}
+				\item \emph{IR LED} – diody z III/V polovodičů, poskytují monochromatické záření.
+				\item \emph{IR lasery} – plynové nebo pevnolátkové lasery, zdroje monochromatického záření.
+			\end{itemize}
+		\end{column}
+		\begin{column}{.3\textwidth}
+			\begin{figure}
+				\adjincludegraphics[width=\textwidth]{../img/globar.jpg}
+				\caption*{Nový a použitý globar}
+			\end{figure}
+		\end{column}
+	\end{columns}
 	\vfill
 }
 
@@ -533,15 +527,23 @@
 \frame{
 	\frametitle{}
 	\vfill
-	\begin{itemize}
-	\item Autorem je americký fyzik Albert A. Michelson.
-	\item Skládá se z beamsplitteru a dvou zrcadel.\footnote[frame]{\url{http://hyperphysics.phy-astr.gsu.edu/hbase/phyopt/michel.html}}
-	\item Jedno ze zrcadel se pohybuje konstantní rychlostí po dráze kolmé k jeho ploše.
-	\item Interferometr moduluje vstupující záření plynulou změnou rozdílu délky drah paprsků.\footnote[frame]{\href{https://www.youtube.com/watch?v=UA1qG7Fjc2A}{Interferometer -- animation}}
-	\end{itemize}
-	\begin{figure}
-		\adjincludegraphics[width=0.35\textwidth]{../img/Michelson_Interferometer.jpg}
-	\end{figure}
+	\begin{columns}
+		\begin{column}{.7\textwidth}
+			\begin{itemize}
+				\item Autorem je americký fyzik Albert A. Michelson.
+				\item Skládá se z beamsplitteru a dvou zrcadel.\footnote[frame]{\url{http://hyperphysics.phy-astr.gsu.edu/hbase/phyopt/michel.html}}
+				\item Jedno ze zrcadel se pohybuje konstantní rychlostí po dráze kolmé k jeho ploše.
+				\item Interferometr moduluje vstupující záření plynulou změnou rozdílu délky drah paprsků.\footnote[frame]{\href{https://www.youtube.com/watch?v=UA1qG7Fjc2A}{Interferometer -- animation}}
+			\end{itemize}
+		\end{column}
+		\begin{column}{.3\textwidth}
+			\begin{figure}
+				\adjincludegraphics[width=\textwidth]{../img/Michelson_Interferometer.jpg}
+				\caption*{Michelsonův interferometr.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Michelson_Interferometer.jpg}{Falcorian/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+	\vfill
 }
 
 \frame{
@@ -576,24 +578,31 @@ Beamsplitter (BS) rozděluje paprsek ze zdroje na dva stejné paprsky. Jeden je 
 \frame{
 	\frametitle{}
 	\vfill
-	Nejčastěji se využívají pyroelektrické detektory.
-	\begin{itemize}
-	\item \emph{DLaTGS}
-	\begin{itemize}
-	\item triglycinsulfát dopovaný L-alaninem
-	\item pyroelektrický detektor (krystal, po dopadu záření dojde k jeho ohřátí a tím vzniku elektrického napětí na povrchu krystalu)
-	\end{itemize}
-	\item \emph{MCT}
-	\begin{itemize}
-	\item mercury/cadmium/telluride
-	\item fotovodivostní detektor (dioda)
-	\item citlivější než DLaTGS
-	\item vyžaduje chlazení na teplotu kapalného dusíku
-	\end{itemize}
-	\end{itemize}
-	\begin{figure}
-		\adjincludegraphics[height=.3\textheight]{../img/detector.png}
-	\end{figure}
+	\begin{columns}
+		\begin{column}{.6\textwidth}
+			Nejčastěji se využívají pyroelektrické detektory.
+			\begin{itemize}
+				\item \emph{DLaTGS}
+				\begin{itemize}
+					\item triglycinsulfát dopovaný L-alaninem
+					\item pyroelektrický detektor (krystal, po dopadu záření dojde k jeho ohřátí a tím vzniku elektrického napětí na povrchu krystalu)
+				\end{itemize}
+				\item \emph{MCT}
+				\begin{itemize}
+					\item mercury/cadmium/telluride
+					\item fotovodivostní detektor (dioda)
+					\item citlivější než DLaTGS
+					\item vyžaduje chlazení na teplotu kapalného dusíku
+				\end{itemize}
+			\end{itemize}
+		\end{column}
+		\begin{column}{.3\textwidth}
+			\begin{figure}
+				\adjincludegraphics[height=.4\textheight]{../img/Pyroelectric-detector.jpg}
+				\caption*{Pyroelektrický detektor.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Busch-Jaeger_Elektro_UP_Sensor_180_Komfort_6132_-_board_-_Heimann_LHI_958-0677.jpg}{Raimond Spekking/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
 	\vfill
 }
 
@@ -614,7 +623,10 @@ Beamsplitter (BS) rozděluje paprsek ze zdroje na dva stejné paprsky. Jeden je 
 \frame{
 	\frametitle{}
 	\vfill
-	\adjincludegraphics[width=11cm,valign=l]{../img/ftir.png}
+	\begin{figure}
+		\adjincludegraphics[width=.8\textwidth]{../img/ftir.png}
+		\caption*{Schéma FT-IR spektrometru.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/w/index.php?lang=cs&title=File\%3AFourier_Transform_spectrometer_principle.svg}{Joachim Terschluesen/Commons}}}
+	\end{figure}
 	\vfill
 }
 
@@ -761,7 +773,7 @@ Beamsplitter (BS) rozděluje paprsek ze zdroje na dva stejné paprsky. Jeden je 
 	\vfill
 }
 
-\subsection{Coupling TGA/GC}
+\subsection{Coupling GC/IR}
 \frame{
 	\frametitle{}
 	\vfill
