@@ -67,7 +67,7 @@
 	\item Měřící techniky
 	\begin{itemize}
 		\item FT-IR transmisní měření
-		\item ATR, DRIFT, PAS
+		\item ATR, DRIFTS, PAS
 		\item TG/IR, GC/IR
 	\end{itemize}
 	\end{itemize}
@@ -738,18 +738,26 @@ Beamsplitter (BS) rozděluje paprsek ze zdroje na dva stejné paprsky. Jeden je 
 	\vfill
 }
 
-\subsection{DRIFTS}
+\subsection{DRIFTS, PAS}
 \frame{
 	\frametitle{}
 	\vfill
 	\begin{itemize}
-	\item DRIFTS - Diffuse Reflectance Infrared Fourier Transform Spectroscopy
-	\item Tato technika je vhodná pro měření malých částic nebo hrubých povrchů
-	\item Využívá rozptylu IR záření
-	\item Rozptýlené záření je pomocí kulového zrcadla odráženo na detektor
-	\item Práškové vzorky se měří v kelímcích, pevné vzorky se obrousí abrasivem (SiC) a měří se částice zachycené na abrasivu
+	\item \textbf{DRIFTS}
+	\begin{itemize}
+		\item Diffuse Reflectance Infrared Fourier Transform Spectroscopy
+		\item Tato technika je vhodná pro měření malých částic nebo hrubých povrchů
+		\item Využívá rozptylu IR záření
+		\item Rozptýlené záření je pomocí kulového zrcadla odráženo na detektor
+		\item Práškové vzorky se měří v kelímcích, pevné vzorky se obrousí abrasivem (SiC) a měří se částice zachycené na abrasivu
 	\end{itemize}
-	\adjincludegraphics[width=52mm,valign=l]{../img/drifts.png}
+	\item \textbf{FTIR-PAS}
+	\begin{itemize}
+		\item Photoacoustic Fourier Transform Infrared Spectroscopy - kombinace FTIR a fotoakustické spektroskopie.
+		\item Absorpci modulovaného záření vede k lokálnímu zahřátí absorbujícího objemového prvku. Vzniklé tlakové vlny jsou detekovány citlivým tlakovým detektorem, který vytváří signál úměrný absorpci.
+		\item Výhodné pro měření plynů, protože vzorkovací prostor může být velmi malý.
+	\end{itemize}
+	\end{itemize}
 	\vfill
 }
 
@@ -762,14 +770,18 @@ Beamsplitter (BS) rozděluje paprsek ze zdroje na dva stejné paprsky. Jeden je 
 	\item Plyny vznikající během degradace vzorku vedeme do měřící cely a pomocí IR spektroskopie stanovíme jejich složení
 	\item Během transportu plynů z pece do měřící cely dochází k velkému zředění plynu, proto je nutné používat citlivější detektory (MCT)
 	\end{itemize}
-	\adjincludegraphics[width=10cm,valign=l]{../img/tg-irFoto.jpg}
+	\begin{figure}
+		\adjincludegraphics[width=.75\textwidth]{../img/tg-irFoto.jpg}
+	\end{figure}
 	\vfill
 }
 
 \frame{
 	\frametitle{}
 	\vfill
-	\adjincludegraphics[width=11cm,valign=l]{../img/tg-ir.png}
+	\begin{figure}
+		\adjincludegraphics[width=.75\textwidth]{../img/tg-ir.png}
+	\end{figure}
 	\vfill
 }
 
