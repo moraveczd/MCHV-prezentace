@@ -152,7 +152,7 @@
 	\begin{columns}
 	\begin{column}{0.76\textwidth}
 	\begin{itemize}
-	\item Polarizovatelnost ($\alpha$) popisuje deformovatelnost elektronové hustoty v okolí molekuly působením elektromagnetického záření, nebo přesněji elektrického pole generovaného fotonem.\footnote[frame]{\url{https://en.wikipedia.org/wiki/Polarizability}}\footnote[frame]{\url{http://chemwiki.ucdavis.edu/Physical_Chemistry/Physical_Properties_of_Matter/Intermolecular_Forces/Polarizability}}\footnote[frame]{\href{http://photonicswiki.org/index.php?title=Polarization_and_Polarizability}{Animace - polarizovatelnost}}
+	\item Polarizovatelnost ($\alpha$) popisuje deformovatelnost elektronové hustoty v okolí molekuly působením elektromagnetického záření, nebo přesněji elektrického pole generovaného fotonem.\footnote[frame]{\url{https://en.wikipedia.org/wiki/Polarizability}}$^,$\footnote[frame]{\url{http://chemwiki.ucdavis.edu/Physical_Chemistry/Physical_Properties_of_Matter/Intermolecular_Forces/Polarizability}}$^,$\footnote[frame]{\href{http://photonicswiki.org/index.php?title=Polarization_and_Polarizability}{Animace - polarizovatelnost}}
 	\item Polarizovatelnost je \emph{tensor druhého řádu}, tzn. že ji lze popsat maticí $3\times3$.\footnote[frame]{\url{https://en.wikipedia.org/wiki/Tensor}}
 	\item Polarizace je ovlivněna několika faktory:
 	\begin{itemize}
@@ -381,12 +381,6 @@
 	\item Používají se lasery v oblasti UV, VIS a NIR.
 	\item Často používané vlnové délky jsou 457, 532 a 1064 nm.
 	\end{itemize}
-	\begin{center}
-	\begin{tabular}{cc}
-	\includegraphics[height=20mm]{../img/laser.png} &
-	\includegraphics[height=20mm]{../img/laser-principle.png}\\
-	\end{tabular}
-	\end{center}
 	\vfill
 }
 
@@ -394,14 +388,23 @@
 \frame{
 	\frametitle{}
 	\vfill
-	\begin{itemize}
-	\item Autorem je americký fyzik Albert A. Michelson.
-	\item Skládá se z beamsplitteru a dvou zrcadel.
-	\item Jedno ze zrcadel se pohybuje, konstantní rychlostí, po dráze kolmé k jeho ploše.\footnote[frame]{\url{http://blockeng.com/technology/ftirtechnology.html}}
-	\end{itemize}
-	\begin{center}
-		\adjincludegraphics[width=0.35\textwidth]{../img/Michelson_Interferometer.jpg}
-	\end{center}
+	\begin{columns}
+		\begin{column}{.7\textwidth}
+			\begin{itemize}
+				\item Autorem je americký fyzik Albert A. Michelson.
+				\item Skládá se z beamsplitteru a dvou zrcadel.\footnote[frame]{\url{http://hyperphysics.phy-astr.gsu.edu/hbase/phyopt/michel.html}}
+				\item Jedno ze zrcadel se pohybuje konstantní rychlostí po dráze kolmé k jeho ploše.
+				\item Interferometr moduluje vstupující záření plynulou změnou rozdílu délky drah paprsků.\footnote[frame]{\href{https://www.youtube.com/watch?v=UA1qG7Fjc2A}{Interferometer -- animation}}
+			\end{itemize}
+		\end{column}
+		\begin{column}{.3\textwidth}
+			\begin{figure}
+				\adjincludegraphics[width=\textwidth]{../img/Michelson_Interferometer.jpg}
+				\caption*{Michelsonův interferometr.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Michelson_Interferometer.jpg}{Falcorian/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+	\vfill
 }
 
 \frame{
@@ -453,23 +456,33 @@ Beamsplitter (BS) rozděluje paprsek ze zdroje na dva stejné paprsky. Jeden je 
 \frame{
 	\frametitle{}
 	\vfill
-	\begin{itemize}
-	\item Jednokanálové detektory (Single-channel)
-	\begin{itemize}
-	\item Fotonásobič\footnote[frame]{\url{https://en.wikipedia.org/wiki/Photomultiplier}}$^,$\footnote[frame]{\href{http://micro.magnet.fsu.edu/primer/flash/photomultiplier/}{Animace fotonásobiče}}
-	\end{itemize}
-	\item CCD - \textbf{C}harged \textbf{C}oupled \textbf{D}evice\footnote[frame]{\url{https://en.wikipedia.org/wiki/Charge-coupled_device}}
-	\begin{itemize}
-	\item Vícekanálový detektor (Multi-channel).
-	\item Disperzní spektrometry.
-	\item Pracuje za laboratorní teploty nebo pro zvýšení citlivosti (snížení šumu) za teploty kapalného dusíku.
-	\item Parametry CCD (velikost pixelu) určují rozlišení naměřeného spektra.
-	\end{itemize}
-	\end{itemize}
-	\begin{figure}
-		\includegraphics[height=28mm]{../img/Photomultipl.jpg}
-		\includegraphics[height=28mm]{../img/CCD.jpg}
-	\end{figure}
+	\begin{columns}
+		\begin{column}{.85\textwidth}
+			\begin{itemize}
+				\item Jednokanálové detektory (Single-channel)
+				\begin{itemize}
+					\item Fotonásobič\footnote[frame]{\href{http://micro.magnet.fsu.edu/primer/flash/photomultiplier/}{Animace fotonásobiče}}
+				\end{itemize}
+				\item CCD - \textbf{C}harged \textbf{C}oupled \textbf{D}evice
+				\begin{itemize}
+					\item Vícekanálový detektor (Multi-channel).
+					\item Disperzní spektrometry.
+					\item Pracuje za laboratorní teploty nebo pro zvýšení citlivosti (snížení šumu) za teploty kapalného dusíku.
+					\item Parametry CCD (velikost pixelu) určují rozlišení naměřeného spektra.
+				\end{itemize}
+			\end{itemize}
+			\begin{figure}
+				\includegraphics[height=.15\textheight]{../img/CCD.jpg}
+				\caption*{CCD čip\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Pmside2.jpg}{Sphl/Commons}}}
+			\end{figure}
+		\end{column}
+		\begin{column}{.15\textwidth}
+			\begin{figure}
+				\includegraphics[width=\textwidth]{../img/Photomultipl.jpg}
+				\caption*{Fotonásobič\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Pmside2.jpg}{Poil/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
 	\vfill
 }
 
@@ -484,11 +497,8 @@ Beamsplitter (BS) rozděluje paprsek ze zdroje na dva stejné paprsky. Jeden je 
 	\item Velmi výhodný pro analýzu uměleckých předmětů, biologických vzorků, apod.
 	\end{itemize}
 	\begin{figure}
-	\begin{center}
-	\adjincludegraphics[width=50mm]{../img/raman-microscope.jpg}
-	\\
-	\tiny \url{https://commons.wikimedia.org/wiki/File:InVia_Raman_microscope_-_March_2008.jpg}
-	\end{center}
+		\adjincludegraphics[height=.35\textheight]{../img/raman-microscope.jpg}
+	\caption*{Ramanův mikroskop.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:InVia_Raman_microscope_-_March_2008.jpg}{Matzger Lab/Commons}}}
 	\end{figure}
 	\vfill
 }
@@ -515,8 +525,8 @@ Beamsplitter (BS) rozděluje paprsek ze zdroje na dva stejné paprsky. Jeden je 
 	\frametitle{}
 	\vfill
 	\begin{figure}
-		\includegraphics[height=.6\textheight]{../img/sers.png}
-		\caption*{Princip SERS}
+		\includegraphics[height=.7\textheight]{../img/sers.jpg}
+		\caption*{Ramanovo spektrum 2-merkaptoethanolu (\ce{HS-CH2-CH2-OH}).\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Sers.jpg}{Paszczakowna1/Commons}}}
 	\end{figure}
 	\vfill
 }
@@ -525,16 +535,21 @@ Beamsplitter (BS) rozděluje paprsek ze zdroje na dva stejné paprsky. Jeden je 
 \frame{
 	\frametitle{}
 	\vfill
-	\begin{itemize}
-	\item Měřící technika, kdy zaznamenáváme rozdíl v intenzitách Ramanova rozptylu pravo- a levotočivě polarizovaného záření na chirálních molekulách.
-	\item Metodu lze využít pro stanovení enantiomerické čistoty, a to i u směsí několika chirálních látek.\footnote[frame]{\href{https://journals.sagepub.com/doi/pdf/10.1177/1934578X1000500914}{Raman Optical Activity: A Powerful Technique to Investigate Essential Oil Components}}
-	\item V současnosti nachází velké využití při studiu struktury biomolekul a jejich chování ve vodných roztocích.
-	\end{itemize}
-	\begin{center}
-	\adjincludegraphics[width=50mm]{../img/ROA_pinene.png}
-	\\
-	\tiny \url{https://en.wikipedia.org/wiki/File:ROA_pinene.PNG}
-	\end{center}
+	\begin{columns}
+		\begin{column}{.6\textwidth}
+			\begin{itemize}
+				\item Měřící technika, kdy zaznamenáváme rozdíl v intenzitách Ramanova rozptylu pravo- a levotočivě polarizovaného záření na chirálních molekulách.
+				\item Metodu lze využít pro stanovení enantiomerické čistoty, a to i u směsí několika chirálních látek.\footnote[frame]{\href{https://journals.sagepub.com/doi/pdf/10.1177/1934578X1000500914}{Raman Optical Activity: A Powerful Technique to Investigate Essential Oil Components}}
+				\item V současnosti nachází velké využití při studiu struktury biomolekul a jejich chování ve vodných roztocích.
+			\end{itemize}
+		\end{column}
+		\begin{column}{.4\textwidth}
+			\begin{figure}
+				\includegraphics[width=\textwidth]{../img/ROA_pinene.png}
+				\caption*{ROA spektrum (+) a (-) pinenu.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:ROA_pinene.PNG}{M.Pecul/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
 	\vfill
 }
 
@@ -578,20 +593,31 @@ Beamsplitter (BS) rozděluje paprsek ze zdroje na dva stejné paprsky. Jeden je 
 \frame{
 	\frametitle{}
 	\vfill
+		\begin{itemize}
+			\item Pomocí Ramanovy spektroskopie lze studovat kvalitu grafenu a určit počet vrstev vzorku.\footnote[frame]{\href{https://doi.org/10.1103/PhysRevLett.97.187401}{Raman Spectrum of Graphene and Graphene Layers}}
+			\item Pás D (1350~cm$^{-1}$) odpovídá poruchám ve struktuře grafenu.
+			\item Pás G (1583~cm$^{-1}$) odpovídá valenčním vibracím vazeb C-C, najdeme ve všech systémech s sp$^2$ uhlíky.
+			\item V případě nečistot nebo výskytu náboje na povrchu grafenu, najdeme v blízkosti pásu G i méně intenzivní pás D' (1620~cm$^{-1}$).
+			\item Pás G' v oblasti 2500-2800~cm$^{-1}$ se označuje jako 2D-pás, nalezneme ho u všech systému s sp$^2$ uhlíky.
+		\end{itemize}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
 	\begin{columns}
-		\begin{column}{0.55\textwidth}
-			\begin{itemize}
-				\item Pomocí Ramanovy spektroskopie lze studovat kvalitu grafenu a určit počet vrstev vzorku.\footnote[frame]{\href{https://doi.org/10.1103/PhysRevLett.97.187401}{Raman Spectrum of Graphene and Graphene Layers}}
-				\item Pás D (1350~cm$^{-1}$) odpovídá poruchám ve struktuře grafenu.
-				\item Pás G (1583~cm$^{-1}$) odpovídá valenčním vibracím vazeb C-C, najdeme ve všech systémech s sp$^2$ uhlíky.
-				\item V případě nečistot nebo výskytu náboje na povrchu grafenu, najdeme v blízkosti pásu G i méně intenzivní pás D' (1620~cm$^{-1}$).
-				\item Pás G' v oblasti 2500-2800~cm$^{-1}$ se označuje jako 2D-pás, nalezneme ho u všech systému s sp$^2$ uhlíky.
-			\end{itemize}
+		\begin{column}{0.5\textwidth}
+			\begin{figure}
+				\includegraphics[width=\textwidth]{../img/Graphen.jpg}
+				\caption*{Struktura grafenu.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Graphen.jpg}{AlexanderAlUS/Commons}}}
+			\end{figure}
 		\end{column}
-		\begin{column}{0.4\textwidth}
-			\includegraphics[width=40mm]{../img/Graphen.jpg}
-			\\
-			\includegraphics[width=40mm]{../img/graphene-Raman.png}
+		\begin{column}{0.5\textwidth}
+			\begin{figure}
+				\includegraphics[width=\textwidth]{../img/Graphene_Raman_spectrum.jpg}
+				\caption*{Ramanovo spektrum grafenu.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Graphene_Raman_spectrum.jpg}{Guodong Gao, Dandan Liu, Shangcheng Tang, Can Huang, Mengci He, Yu Guo, Xiudong Sun \& Bo Gao/Commons}}}
+			\end{figure}
 		\end{column}
 	\end{columns}
 	\vfill
