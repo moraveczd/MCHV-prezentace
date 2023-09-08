@@ -149,22 +149,19 @@
 \frame{
 	\frametitle{}
 	\vfill
-	\begin{columns}
-	\begin{column}{0.76\textwidth}
 	\begin{itemize}
 	\item Polarizovatelnost ($\alpha$) popisuje deformovatelnost elektronové hustoty v okolí molekuly působením elektromagnetického záření, nebo přesněji elektrického pole generovaného fotonem.\footnote[frame]{\url{https://en.wikipedia.org/wiki/Polarizability}}$^,$\footnote[frame]{\url{http://chemwiki.ucdavis.edu/Physical_Chemistry/Physical_Properties_of_Matter/Intermolecular_Forces/Polarizability}}$^,$\footnote[frame]{\href{http://photonicswiki.org/index.php?title=Polarization_and_Polarizability}{Animace - polarizovatelnost}}
-	\item Polarizovatelnost je \emph{tensor druhého řádu}, tzn. že ji lze popsat maticí $3\times3$.\footnote[frame]{\url{https://en.wikipedia.org/wiki/Tensor}}
-	\item Polarizace je ovlivněna několika faktory:
-	\begin{itemize}
-		\item Čím více elektronů má atom, tím slaběji je k sobě váže a tím je polarizovatelnost větší.
-		\item Čím je elektron více vzdálen od kladného jádra, tím je pohyblivější a zvyšuje polarizovatelnost atomu.
-		\item Orientací molekuly vůči vnějšímu elektrickému poli.
+	\item Je to \emph{tensor druhého řádu}, tzn. že ji lze popsat maticí $3\times3$.\footnote[frame]{\url{https://en.wikipedia.org/wiki/Tensor}}
 	\end{itemize}
-	\end{itemize}
+	\begin{columns}
+	\begin{column}{0.5\textwidth}
+		\begin{figure}
+			\adjincludegraphics[height=.3\textheight]{../img/tensor-comp.png}
+			\caption*{Složky tensoru polarizovatelnosti.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Components_stress_tensor.svg}{Sanpaz/Commons}}}
+		\end{figure}
 	\end{column}
-	\begin{column}{0.25\textwidth}
-	\adjincludegraphics[width=30mm]{../img/tensor-comp.png}
-\scalebox{0.8}{$\alpha =
+	\begin{column}{0.5\textwidth}
+\scalebox{1}{$\alpha =
 \begin{bmatrix}
 \alpha_{xx} & \alpha_{xy} & \alpha_{xz}\\
 \alpha_{yx} & \alpha_{yy} & \alpha_{yz}\\
@@ -172,6 +169,23 @@
 \end{bmatrix}$}
 	\end{column}
 	\end{columns}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+		\begin{itemize}
+			\item Polarizovatelnost ($\alpha$) je ovlivněna několika faktory:
+			\begin{itemize}
+				\item Čím více elektronů má atom, tím slaběji je k sobě váže a tím je polarizovatelnost větší.
+				\item Čím je elektron více vzdálen od kladného jádra, tím je pohyblivější a zvyšuje polarizovatelnost atomu.
+				\item Orientací molekuly vůči vnějšímu elektrickému poli.
+			\end{itemize}
+			\item Ramanův rozptyl lze popsat rovnicí pro indukovaný dipólový moment:
+			\item $\vec{p} = \alpha \vec{E} \cos(2 \pi \nu_0t) + \frac{1}{2} \frac{\delta\alpha}{\delta q}q\vec{E}\{\cos[2\pi(\nu_0-\nu_{vib})t] + \cos[2\pi(\nu_0+\nu_{vib})t]\}$
+			\item První člen odpovídá Rayleighovu rozptylu, druhý a třetí pak Ramanovu (Stokes a anti-Stokes).
+		\end{itemize}
 	\vfill
 }
 
@@ -184,8 +198,8 @@
 	\item Citlivost je nižší než v případě IR spektroskopie.
 	\item Je vhodnější pro nepolární vazby a umožňuje pozorovat vibrace i na nižších vlnočtech ($<$400 cm$^{-1}$).
 	\item Umožňuje snadné měření vodných roztoků (voda poskytuje slabý signál).
-	\item Aby byla vibrace viditelná v IR spetroskopii, musí během ní docházet ke změně vektoru dipólmomentu molekuly.
-	\item Aby byla vibrace viditelná v Ramanově spetroskopii, musí během ní docházet ke změně \emph{tensoru polarizovatelnosti} molekuly.
+	\item Aby byla vibrace aktivní v IR spetroskopii, musí během ní docházet ke změně vektoru dipólmomentu molekuly.
+	\item Aby byla vibrace aktivní v Ramanově spetroskopii, musí během ní docházet ke změně \emph{tensoru polarizovatelnosti} molekuly (viz rovnice na předchozím slidu).
 	\item Pokud má molekula \emph{střed symetrie}, mohou být vibrace aktivní buď v IR nebo v RA, ale ne v obou zároveň.
 	\end{itemize}
 	\vfill
