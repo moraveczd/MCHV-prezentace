@@ -535,6 +535,7 @@
 				\item Skládá se z beamsplitteru a dvou zrcadel.\footnote[frame]{\url{http://hyperphysics.phy-astr.gsu.edu/hbase/phyopt/michel.html}}
 				\item Jedno ze zrcadel se pohybuje konstantní rychlostí po dráze kolmé k jeho ploše.
 				\item Interferometr moduluje vstupující záření plynulou změnou rozdílu délky drah paprsků.\footnote[frame]{\href{https://www.youtube.com/watch?v=UA1qG7Fjc2A}{Interferometer -- animation}}
+				\item Firma Bruker využívá interferometry s koutovými odražeči, tzv. RockSolid\texttrademark interferometry.\footnote[frame]{\href{http://bc.orgchm.bas.bg/~irlab/Site_BG/Laboratory/rocksolid.pdf}{The Bruker ROCKSOLID\texttrademark Interferometer}}
 			\end{itemize}
 		\end{column}
 		\begin{column}{.3\textwidth}
@@ -778,10 +779,24 @@ Beamsplitter (BS) rozděluje paprsek ze zdroje na dva stejné paprsky. Jeden je 
 \frame{
 	\frametitle{}
 	\vfill
-	\begin{figure}
-		\adjincludegraphics[height=.67\textheight]{../img/AFMsetup.jpg}
-		\caption*{Schéma AFM.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:AFMsetup.jpg}{KristianMolhave/Commons}}}
-	\end{figure}
+	\begin{columns}
+		\begin{column}{.5\textwidth}
+			\begin{itemize}
+				\item AFM -- Atomic Force Microscopy.
+				\item Obraz vzorku je snímám pomocí interakce velmi tenkého hrotu s povrchem vzorku.
+				\item Hrot AFM se využívá i k detekci IR spektra.
+				\item Zdrojem záření je QCL, při absorpci dojde ke zvýšení teploty v místě dopadu.
+				\item Můžeme mapovat rozložení látek ve vzorku s rozlišením daným AFM.
+			\end{itemize}
+		\end{column}
+
+		\begin{column}{.5\textwidth}
+			\begin{figure}
+				\adjincludegraphics[width=\textwidth]{../img/AFMsetup.jpg}
+				\caption*{Schéma AFM.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:AFMsetup.jpg}{KristianMolhave/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
 	\vfill
 }
 
@@ -877,7 +892,7 @@ Beamsplitter (BS) rozděluje paprsek ze zdroje na dva stejné paprsky. Jeden je 
 	\begin{itemize}
 	\item Výhodou IR spektroskopie je nízká spotřeba vzorku, příp. nedestruktivnost metody, při použití bezkontaktního spektrometru.
 	\end{itemize}
-	\adjincludegraphics[scale=0.4]{../img//nova-contactless.png}
+	\adjincludegraphics[scale=0.4]{../img/nova-contactless.png}
 	\vfill
 }
 
@@ -889,7 +904,31 @@ Beamsplitter (BS) rozděluje paprsek ze zdroje na dva stejné paprsky. Jeden je 
 	\item Mezi speciální aplikace patří např. datování dřeva, které může být pro mladší dřevěné předměty podstatně přesnější než datování pomocí $^{14}C$.
 	\item FT-IR mikroskop se lze využít k analýze nábrusů a identifikaci složení a stratigrafie vrstev
 	\end{itemize}
-	\adjincludegraphics[scale=0.7]{../img//mikroskop.jpg}
+	\adjincludegraphics[scale=0.7]{../img/mikroskop.jpg}
+	\vfill
+}
+
+\subsection{Analýza potravin}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{columns}
+		\begin{column}{.58\textwidth}
+			\begin{itemize}
+				\item FT-NIR je velmi výhodná metoda pro analýzu potravin.
+				\item Je velmi rychlá, levná, nedestruktivní a bezpečná.
+				\item Vzorky není nutné upravovat, lze měřit přímo v baleních.
+				\item Kapaliny je možné analyzovat pomocí průtočné měřící cely.
+				\item Umožňuje snadnou analýzu vstupních surovin, meziproduktů i finálních výrobků.
+			\end{itemize}
+		\end{column}
+		\begin{column}{.45\textwidth}
+			\begin{figure}
+				\adjincludegraphics[width=\textwidth]{../img/NIR-melanine.jpg}
+				\caption*{Analýza laktózy pomocí NIR.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Portable_Screening_Devices_(1432)_(8225043720).jpg}{FDA/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
 	\vfill
 }
 
