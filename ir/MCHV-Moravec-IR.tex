@@ -717,9 +717,9 @@ Beamsplitter (BS) rozděluje paprsek ze zdroje na dva stejné paprsky. Jeden je 
 	\frametitle{}
 	\vfill
 	\begin{itemize}
-	\item ATR - Attenuated Total Reflection
+	\item ATR - Attenuated Total Reflection\footnote[frame]{Zeslabený úplný odraz}
 	\item Krystaly jsou z diamantu, ZnSe, Ge, KRS-5 (směs TlBr a TlI) nebo křemíku
-	\item Vzorek se přitlačí vysokým tlakem k měřícímu krystalu
+	\item Vzorek se přitlačí vysokým tlakem k měřícímu krystalu, dochází k úplnému odrazu\footnote[frame]{\href{https://www.youtube.com/watch?v=O4kujZQ8YgA}{Optické kabely – Tomáš Tyc}}
 	\item Paprsek se pohybuje po povrchu vzorku (0,5 - 5 $\mu$m)
 	\end{itemize}
 	\vfill
@@ -727,6 +727,16 @@ Beamsplitter (BS) rozděluje paprsek ze zdroje na dva stejné paprsky. Jeden je 
 		\adjincludegraphics[width=.8\textwidth]{../img/ATR.png}
 		\caption*{Schéma ATR.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:ATR_path-en.svg}{Fulvio314/Commons}}}
 	\end{figure}
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{figure}
+		\adjincludegraphics[height=0.6\textheight]{../img/tensor-atr.png}
+		\caption*{ATR nástavec, spektrometr Bruker Tensor 27}
+	\end{figure}
+	\vfill
 }
 
 \frame{
@@ -975,7 +985,50 @@ Beamsplitter (BS) rozděluje paprsek ze zdroje na dva stejné paprsky. Jeden je 
 	\vfill
 }
 
+\subsection{Fluor v lyžařských voscích}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{columns}
+		\begin{column}{.53\textwidth}
+			\begin{itemize}
+				\item Lyžařské vosky s obsahem PFAS jsou od sezóny 2023/2024 zakázány mezinárodní lyžařskou federací (FIS).\footnote[frame]{\href{https://www.seznamzpravy.cz/clanek/sport-stop-fluorovym-lyzarskym-voskum-funguji-skvele-ale-skodi-zdravi-228268}{Stop fluorovým lyžařským voskům. Fungují skvěle, ale škodí zdraví}}
+				\item Důvodem je vysoká stabilita PFAS a jejich ukládání v životním prostředí.
+				\item Jednou z možností, jak kontrolovat dodržování zákazu je IR spektroskopie.
+			\end{itemize}
+		\end{column}
+		\begin{column}{.5\textwidth}
+			\begin{figure}
+				\adjincludegraphics[width=\textwidth]{../img/C-F-wax.jpg}
+				\caption*{Vibrační pásy C-F v IR spektrech lyžařských vosků.\footnote[frame]{Zdroj: \href{https://doi.org/10.1016/j.coldregions.2024.104365}{Chemical composition and properties of Ski wax: A comprehensive analysis of fluorinated, non-fluorinated, and bio-based waxes}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+	\vfill
+}
+
 \subsection{Biologie}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{columns}
+		\begin{column}{.63\textwidth}
+			\begin{itemize}
+				\item FTIR spektroskopii lze využít i ke studiu biologických systémů.
+				\item Ve spektrech lze nalézt kvalitativní i kvantitativní informaci o chemickém složení.
+				\item Kvantifikace se provádí na základě vhodných kalibračních modelů.
+			\end{itemize}
+		\end{column}
+		\begin{column}{.4\textwidth}
+			\begin{figure}
+				\adjincludegraphics[width=\textwidth]{../img/FTIR-roots.jpg}
+				\caption*{IR spektra kořenů z Finska.\footnote[frame]{Zdroj: \href{https://doi.org/10.3389/fpls.2020.00597}{Quantification of Plant Root Species Composition in Peatlands Using FTIR Spectroscopy}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+	\vfill
+}
+
 \frame{
 	\frametitle{}
 	\vfill
