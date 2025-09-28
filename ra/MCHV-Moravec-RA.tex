@@ -95,6 +95,27 @@
 \frame{
 	\frametitle{}
 	\vfill
+	\begin{columns}
+		\begin{column}{0.5\textwidth}
+			\begin{figure}
+				\adjincludegraphics[height=.6\textheight]{../img/Sir_CV_Raman.jpg}
+				\caption*{Sir Raman.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Sir_CV_Raman.JPG}{Nobel Foundation/Commons}}}
+			\end{figure}
+		\end{column}
+		
+		\begin{column}{0.5\textwidth}
+			\begin{figure}
+				\adjincludegraphics[width=\textwidth]{../img/Raman_1928_Benzene_Spectrum.png}
+				\caption*{Ramanovo spektrum benzenu z roku 1928.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:1928_Benzene_Raman_Spectrum.png}{C. V. Raman/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
 	\begin{itemize}
 	\item Ramanův efekt může být popsán jako nepružná srážka fotonu s molekulou, jejímž výsledkem je změna vibračního nebo rotačního stavu molekuly.\footnote[frame]{\href{http://www.4oci.cz/rozptyl-svetla-nejvsednejsi-jev-v-prirode-nebo-div-moderni-optiky_4c290}{Malíšek V.: "Rozptyl světla - nejvšednější jev v přírodě, nebo div moderní optiky?", str. 62-64}}
 	\item \emph{Stokesův rozptyl}: vzorek přijme část energie od záření a emituje foton s nižší energií.
@@ -196,10 +217,10 @@
 	\begin{itemize}
 	\item Ramanova spektroskopie je komplementární metodou k infračervené spektroskopii.
 	\item Citlivost je nižší než v případě IR spektroskopie.
-	\item Je vhodnější pro nepolární vazby a umožňuje pozorovat vibrace i na nižších vlnočtech ($<$400 cm$^{-1}$).
+	\item Je vhodnější pro nepolární vazby a umožňuje pozorovat vibrace i na nižších vlnočtech než MIR spektroskopie ($<$400 cm$^{-1}$).
 	\item Umožňuje snadné měření vodných roztoků (voda poskytuje slabý signál).
-	\item Aby byla vibrace aktivní v IR spetroskopii, musí během ní docházet ke změně vektoru dipólmomentu molekuly.
-	\item Aby byla vibrace aktivní v Ramanově spetroskopii, musí během ní docházet ke změně \emph{tensoru polarizovatelnosti} molekuly (viz rovnice na předchozím slidu).
+	\item Aby byla vibrace aktivní v IR spektroskopii, musí během ní docházet ke změně vektoru dipólmomentu molekuly.
+	\item Aby byla vibrace aktivní v Ramanově spektroskopii, musí během ní docházet ke změně \emph{tensoru polarizovatelnosti} molekuly (viz rovnice na předchozím slidu).
 	\item Pokud má molekula \emph{střed symetrie}, mohou být vibrace aktivní buď v IR nebo v RA, ale ne v obou zároveň.
 	\end{itemize}
 	\vfill
@@ -393,7 +414,7 @@
 	\item Monochromatický - obsahuje pouze jednu vlnovou délku.
 	\end{itemize}
 	\item Používají se lasery v oblasti UV, VIS a NIR.
-	\item Často používané vlnové délky jsou 457, 532 a 1064 nm.
+	\item Často používané vlnové délky jsou 457, 532, 785 a 1064 nm.
 	\end{itemize}
 	\vfill
 }
@@ -477,7 +498,7 @@ Beamsplitter (BS) rozděluje paprsek ze zdroje na dva stejné paprsky. Jeden je 
 				\begin{itemize}
 					\item Fotonásobič\footnote[frame]{\href{http://micro.magnet.fsu.edu/primer/flash/photomultiplier/}{Animace fotonásobiče}}
 				\end{itemize}
-				\item CCD - \textbf{C}harged \textbf{C}oupled \textbf{D}evice
+				\item CCD - \textbf{C}harge \textbf{C}oupled \textbf{D}evice
 				\begin{itemize}
 					\item Vícekanálový detektor (Multi-channel).
 					\item Disperzní spektrometry.
@@ -628,6 +649,7 @@ Beamsplitter (BS) rozděluje paprsek ze zdroje na dva stejné paprsky. Jeden je 
 			\item Pás G (1583~cm$^{-1}$) odpovídá valenčním vibracím vazeb C-C, najdeme ve všech systémech s sp$^2$ uhlíky.
 			\item V případě nečistot nebo výskytu náboje na povrchu grafenu, najdeme v blízkosti pásu G i méně intenzivní pás D' (1620~cm$^{-1}$).
 			\item Pás G' v oblasti 2500-2800~cm$^{-1}$ se označuje jako 2D-pás, nalezneme ho u všech systému s sp$^2$ uhlíky.
+			\item Zlepšení dat získaných z 2D materiálů lze dosáhnout měřením za kryogenních teplot.\footnote[frame]{\href{https://chemagazin.cz/content/id_magazines_pdf/49.pdf}{DIEING, T.; ALTMANN, P.; ENGLERT, J.; STROM, D. a BACANI, M. Kryogenní Ramanovo zobrazování šupin diselenidu wolframu. \textit{Chemagazín}. 2025, roč. XXXV, č. 1, s. 12-13.}}
 		\end{itemize}
 	\vfill
 }
@@ -700,7 +722,7 @@ Beamsplitter (BS) rozděluje paprsek ze zdroje na dva stejné paprsky. Jeden je 
 	\begin{itemize}
 	\item S výhodou lze využít fluorescenční mikroskopy s Ramanovým spektrometrem.
 	\item Na obrázku jsou buňky primátů obarvené fluorescenčním barvivem DAPI a příslušné Ramanovo spektrum.\footnote[frame]{\href{https://chemagazin.cz/archiv-casopisu/chemagazin-5-2019}{CHEMAGAZIN, 2019, 5, 22-23}}
-	\item Pro excitaci byl využit laser o vlnové délce 532~nm. Byl získán obrázek plochy $50\times 40 \mu m$.
+	\item Pro excitaci byl využit laser o vlnové délce 532~nm. Byl získán obrázek plochy $50\times 40\ \mu $m.
 	\item Jádra buněk jsou znázorněna modře, jadérka zeleně a endoplazmatická retikula červeně.
 	\end{itemize}
 	\begin{figure}
@@ -714,6 +736,20 @@ Beamsplitter (BS) rozděluje paprsek ze zdroje na dva stejné paprsky. Jeden je 
 	\vfill
 	\begin{figure}
 		\adjincludegraphics[width=\textwidth]{../img/RA-primati-BIO.png}
+	\end{figure}
+	\vfill
+}
+
+\subsection{Analýza mikroplastů}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Ramanova mikroskopie je důležitou metodou pro analýzu mikroplastů v životním prostředí a organismech.
+	\end{itemize}
+	\begin{figure}
+		\includegraphics[height=.5\textheight]{../img/RA-microplastics.jpg}
+		\caption*{Schéma izolace a analýzy mikroplastů.\footnote[frame]{\href{https://doi.org/10.1016/j.envint.2024.108444}{MicroRaman spectroscopy detects the presence of microplastics in human urine and kidney tissue}}}
 	\end{figure}
 	\vfill
 }
