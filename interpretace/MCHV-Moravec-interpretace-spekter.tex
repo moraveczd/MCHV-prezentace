@@ -88,7 +88,11 @@
 \setbeamercolor{section in head/foot}{ fg=white, bg=MUgreen } \setbeamertemplate{headline}
 { \leavevmode
 	\hbox{ \begin{beamercolorbox}[ wd=\paperwidth, ht=2.8ex, dp=1.2ex, leftskip=1em ]{section in head/foot}
-			\insertsectionhead \end{beamercolorbox}
+			\insertsectionhead
+
+			\ifx\insertsubsectionhead\empty \else \insertsectionhead\hspace{1em}$\triangleright$\hspace{0.5em} \insertsubsectionhead \fi
+
+		\end{beamercolorbox}
 	}
 }
 

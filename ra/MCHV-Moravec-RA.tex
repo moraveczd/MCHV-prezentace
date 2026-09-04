@@ -1,9 +1,10 @@
-\documentclass[hyperref=unicode]{beamer}
+\documentclass[aspectratio=169,hyperref=unicode]{beamer}
 
 \usepackage[absolute,overlay]{textpos}
 \usepackage{graphicx}
 \usepackage{adjustbox}
 \usepackage{chemfig}
+\usepackage{makecell}
 \usepackage[version=4]{mhchem}
 \usepackage{wrapfig}
 \usepackage{multirow}
@@ -25,23 +26,90 @@
 
 \def\uv#1{„#1“}
 
-\mode<presentation>{\usetheme{Madrid}}
-\DefineNamedColor{named}{pozadi}{RGB}{200,200,200}
-\usecolortheme{crane}
+\usetheme[numbering=fraction]{metropolis}
+%\mode<presentation>{\usetheme{Madrid}}
+%\DefineNamedColor{named}{pozadi}{RGB}{200,200,200}
+%\usecolortheme{crane}
 
-\setbeamertemplate{footline}[frame number]
+%------------------------------------------------
+% Fonty (LuaLaTeX nebo XeLaTeX) %------------------------------------------------
+\usepackage{fontspec}
+\setmainfont{Source Sans Pro}
+\setsansfont{Source Sans Pro}
+\setmonofont{JetBrains Mono}
 
-\addtobeamertemplate{frametitle}{
-	\let\insertframetitle\insertsectionhead}{}
-\addtobeamertemplate{frametitle}{
-	\let\insertframesubtitle\insertsubsectionhead}{}
+%------------------------------------------------
+% Grafika
+%------------------------------------------------
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{tikz}
+\usetikzlibrary{ positioning, arrows.meta, calc, shapes.geometric }
 
-\makeatletter
-\CheckCommand*\beamer@checkframetitle{\@ifnextchar\bgroup\beamer@inlineframetitle{}}
-\renewcommand*\beamer@checkframetitle{\global\let\beamer@frametitle\relax\@ifnextchar\bgroup\beamer@inlineframetitle{}}
-\makeatother
-\setbeamercolor{section in toc}{fg=blue}
-\setbeamertemplate{section in toc shaded}[default][100]
+%------------------------------------------------
+% Barvy
+%------------------------------------------------
+\definecolor{MUblue}{HTML}{00467F}
+\definecolor{MUlight}{HTML}{EAF2F8}
+\definecolor{MUgreen}{HTML}{008A5E}
+\setbeamercolor{frametitle}{fg=MUblue}
+\setbeamercolor{title}{fg=MUblue}
+\setbeamercolor{block title}{ fg=white, bg=MUlight }
+\setbeamercolor{block body}{ bg=MUblue }
+\setbeamercolor{alerted text}{ fg=MUgreen }
+
+%------------------------------------------------
+% Metropolis nastavení
+%------------------------------------------------
+
+\metroset{ progressbar=frametitle, sectionpage=progressbar, block=fill }
+
+%------------------------------------------------
+% Vzhled seznamů
+%------------------------------------------------
+\setbeamertemplate{itemize item}{\small$\blacktriangleright$} \setbeamertemplate{itemize subitem}{\tiny$\blacktriangleright$}
+
+%------------------------------------------------
+% Číslování obrázků a tabulek %------------------------------------------------
+
+\setbeamertemplate{caption}[numbered]
+
+% --------------------------------------------------
+% Bez navigačních ikon
+% --------------------------------------------------
+
+\setbeamertemplate{navigation symbols}{}
+
+% --------------------------------------------------
+% Horní lišta se sekcí
+% --------------------------------------------------
+
+\setbeamercolor{section in head/foot}{ fg=white, bg=MUgreen } \setbeamertemplate{headline}
+{ \leavevmode
+	\hbox{ \begin{beamercolorbox}[ wd=\paperwidth, ht=2.8ex, dp=1.2ex, leftskip=1em ]{section in head/foot}
+			\insertsectionhead
+
+			\ifx\insertsubsectionhead\empty \else \insertsectionhead\hspace{1em}$\triangleright$\hspace{0.5em} \insertsubsectionhead \fi
+
+			\end{beamercolorbox}
+	}
+}
+
+% --------------------------------------------------
+% Dolní lišta s číslováním
+% --------------------------------------------------
+
+\setbeamercolor{author in head/foot}{ fg=white, bg=MUgreen } \setbeamertemplate{footline}
+{
+	\leavevmode
+	\hbox{
+		\begin{beamercolorbox}[ wd=\paperwidth, ht=2.8ex, dp=1.2ex, rightskip=1em ]{author in head/foot}
+			\hfill
+			\insertframenumber/\inserttotalframenumber \end{beamercolorbox}
+	}
+}
+\begin{document}
 
 \title[Crisis] % (optional, only for long titles)
 {Ramanova spektroskopie}
@@ -53,7 +121,6 @@
 
 \subtitle{C5060 Metody chemické výzkumu}
 
-\begin{document}
 \frame{\titlepage}
 
 \section{Osnova}
@@ -84,10 +151,10 @@
 	\frametitle{}
 	\vfill
 	\begin{itemize}
-	\item Při interakci elektromagnetického záření s hmotou může dojít k absorbci, přenosu a rozptylu.
+	\item Při interakci elektromagnetického záření s hmotou může dojít k absorpci, přenosu a rozptylu.
 	\item Rozptyl může být pružný a nepružný.
-	\item Při pružném rozptylu nedochází k výměně energie mezi zářením a hmotou. Tento byl popsán britským fyzikem Lordem Rayleighem, po němž je pojmenován.\footnote[frame]{\url{http://hyperphysics.phy-astr.gsu.edu/hbase/atmos/blusky.htm\#c2}}
-	\item Při nepružném rozptylu naopak k výměně energie mezi zářením a hmotou dochází. Tento jev byl popsán v roce 1928 Sirem Chandrasekhara Venkata Ramanem.\footnote[frame]{\href{https://vesmir.cz/cz/casopis/archiv-casopisu/2024/cislo-4/objev-z-lodni-paluby.html}{Objev z lodní paluby}} Pojmenován byl po objeviteli \em{Ramanův efekt} nebo \em{Smekalův-Ramanův efekt}. Za tento objev obdržel sir Raman Nobelovu cenu za fyziku v roce 1930.\footnote[frame]{\url{http://www.nobelprize.org/nobel_prizes/physics/laureates/1930/raman-lecture.pdf}}
+	\item Při pružném rozptylu nedochází k výměně energie mezi zářením a hmotou. Tento jev popsal britský fyzik Lord Rayleigh, po němž je pojmenován.\footnote[frame]{\url{http://hyperphysics.phy-astr.gsu.edu/hbase/atmos/blusky.htm\#c2}}
+	\item Při nepružném rozptylu naopak k výměně energie mezi zářením a hmotou dochází. Tento jev popsal v roce 1928 Sir Chandrasekhara Venkata Raman.\footnote[frame]{\href{https://vesmir.cz/cz/casopis/archiv-casopisu/2024/cislo-4/objev-z-lodni-paluby.html}{Objev z lodní paluby}} Pojmenován byl po objeviteli \em{Ramanův efekt} nebo \em{Smekalův-Ramanův efekt}. Za tento objev obdržel sir Raman Nobelovu cenu za fyziku v roce 1930.\footnote[frame]{\url{http://www.nobelprize.org/nobel_prizes/physics/laureates/1930/raman-lecture.pdf}}
 \end{itemize}
 	\vfill
 }
@@ -102,7 +169,7 @@
 				\caption*{Sir Raman.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Sir_CV_Raman.JPG}{Nobel Foundation/Commons}}}
 			\end{figure}
 		\end{column}
-		
+
 		\begin{column}{0.5\textwidth}
 			\begin{figure}
 				\adjincludegraphics[width=\textwidth]{../img/Raman_1928_Benzene_Spectrum.png}
@@ -117,12 +184,12 @@
 	\frametitle{}
 	\vfill
 	\begin{itemize}
-	\item Ramanův efekt může být popsán jako nepružná srážka fotonu s molekulou, jejímž výsledkem je změna vibračního nebo rotačního stavu molekuly.\footnote[frame]{\href{http://www.4oci.cz/rozptyl-svetla-nejvsednejsi-jev-v-prirode-nebo-div-moderni-optiky_4c290}{Malíšek V.: "Rozptyl světla - nejvšednější jev v přírodě, nebo div moderní optiky?", str. 62-64}}
+	\item Ramanův rozptyl lze popsat jako nepružnou interakci fotonu s molekulou vedoucí ke změně vibračního nebo rotačního energetického stavu  molekuly.\footnote[frame]{\href{http://www.4oci.cz/rozptyl-svetla-nejvsednejsi-jev-v-prirode-nebo-div-moderni-optiky_4c290}{Malíšek V.: "Rozptyl světla - nejvšednější jev v přírodě, nebo div moderní optiky?", str. 62-64}}
 	\item \emph{Stokesův rozptyl}: vzorek přijme část energie od záření a emituje foton s nižší energií.
 	\item \emph{anti-Stokesův rozptyl}: vzorek ztratí část energie a emituje foton s vyšší energií.
 	\item Stokesovy linie jsou intenzivnější než anti-Stokesovy. Poměr intenzit je teplotně závislý, čehož lze využít pro měření teploty.
 	\begin{itemize}
-	\item \scalebox{1.5}{$\frac{I_{as}}{I_s} = \frac{(\nu_i + \nu)^4}{(\nu_i - \nu)^4}\ e^{-\frac{h\nu_i}{kT}}$}
+	\item \scalebox{1.5}{$\frac{I_{as}}{I_s} = \frac{(\nu_L + \nu_\nu)^4}{(\nu_L - \nu_\nu)^4}\ e^{-\frac{h\nu_\nu}{kT}}$}
 	\end{itemize}
 	\item Hodnota Ramanova posunu je \emph{nezávislá} na energii (vlnové délce) použitého laseru.
 	\end{itemize}
@@ -216,13 +283,30 @@
 	\vfill
 	\begin{itemize}
 	\item Ramanova spektroskopie je komplementární metodou k infračervené spektroskopii.
-	\item Citlivost je nižší než v případě IR spektroskopie.
-	\item Je vhodnější pro nepolární vazby a umožňuje pozorovat vibrace i na nižších vlnočtech než MIR spektroskopie ($<$400 cm$^{-1}$).
+	\item Ramanův rozptyl je obecně slabý jev, a proto dosahuje nižší citlivosti než absorpční IR spektroskopie.
+	\item Je vhodnější pro nepolární vazby a umožňuje pozorovat vibrace i na nižších vlnočtech než MIR spektroskopie ($<$400 cm$^{-1}$).\footnote[frame]{HOUSECROFT, Catherine; SHARPE, Alan. \textit{Anorganická chemie}. 1. vyd. Praha: VŠCHT, 2014. 1119 s. ISBN 978-0273-74275-3. S. 98.}
 	\item Umožňuje snadné měření vodných roztoků (voda poskytuje slabý signál).
-	\item Aby byla vibrace aktivní v IR spektroskopii, musí během ní docházet ke změně vektoru dipólmomentu molekuly.
 	\item Aby byla vibrace aktivní v Ramanově spektroskopii, musí během ní docházet ke změně \emph{tensoru polarizovatelnosti} molekuly (viz rovnice na předchozím slidu).
-	\item Pokud má molekula \emph{střed symetrie}, mohou být vibrace aktivní buď v IR nebo v RA, ale ne v obou zároveň.
+	\item Pokud má molekula \emph{střed symetrie}, mohou být vibrace aktivní buď v IR nebo v RA, ale ne v obou zároveň (princip vzájemného vyloučení).
 	\end{itemize}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\textbf{Omezení Ramanovy spektroskopie}
+	\begin{itemize}
+		\item Ramanův rozptyl je velmi slabý.
+		\item Intenzivní fluorescence může zcela překrýt Ramanův signál.
+		\item Delší excitační vlnové délky (785 nm, 1064 nm) fluorescenci potlačují.
+		\item Kompromis mezi fluorescencí a intenzitou Ramanova signálu.
+	\end{itemize}
+
+	\begin{figure}
+		\adjincludegraphics[height=.5\textheight]{../img/RA-fluorescence.png}
+		\caption*{Ukázka vlivu fluorescence na vzhled Ramanových spekter}
+	\end{figure}
 	\vfill
 }
 
@@ -368,7 +452,7 @@
 \node at (1,6) {PC};
 
 \draw [fill=white] (4,7) rectangle (7,8.5);
-\node at (6.8,7.7) [text width=5cm] {Michaelsonův \\ interferometr};
+\node at (6.8,7.7) [text width=5cm] {Michelsonův \\ interferometr};
 
 \node at (4.7,9.3) [text width=3cm] {Beam \\ splitter};
 
@@ -396,7 +480,7 @@
 \frame{
 	\frametitle{}
 	\vfill
-	\adjincludegraphics[width=115mm]{../img/FRA106FT-RA.png}
+	\adjincludegraphics[height=.9\textheight]{../img/FRA106FT-RA.png}
 	\vfill
 }
 
@@ -407,7 +491,7 @@
 	\begin{itemize}
 	\item \textbf{L}ight  \textbf{A}mplification by  \textbf{S}timulated  \textbf{E}mission of  \textbf{R}adiation.
 	\item Zesilování světla stimulovanou emisí záření.\footnote[frame]{VRBOVÁ, Miroslava. \emph{Lasery a moderní optika.} Praha : Prometheus, 1994. 474 s. ISBN 80-85849-56-9.}
-	\item První laser byl sestrojen roku 1957, teoreticky byl předpovězen (resp. stimulovaná emise) již roku 1917 Albertem Einsteinem.\footnote[frame]{\href{http://qoqi.physik.uni-erlangen.de/teaching/SS2012/Daten/Einstein.pdf}{Zur Quantentheorie der Strahlung}}
+	\item První funkční laser předvedl Theodore Maiman v roce 1960, teoreticky byl předpovězen (resp. stimulovaná emise) již roku 1917 Albertem Einsteinem.\footnote[frame]{\href{http://qoqi.physik.uni-erlangen.de/teaching/SS2012/Daten/Einstein.pdf}{Zur Quantentheorie der Strahlung}}
 	\item Jde o koherentní a monochromatický zdroj záření.\footnote[frame]{\href{https://www.youtube.com/watch?v=R_QOWbkc7UI}{Laser principle animation}}
 	\begin{itemize}
 	\item Koherentní - na dlouhém úseku mezi jednotlivými vlnami paprsku existuje pevná časová a prostorová vazba fáze.
@@ -445,28 +529,32 @@
 \frame{
 	\frametitle{}
 	\vfill
+	\begin{columns}
+		\begin{column}{.7\textwidth}
+			Beamsplitter (BS) rozděluje paprsek ze zdroje na dva stejné paprsky. Jeden je odražen na nepohyblivé zrcadlo (Z1), od kterého se odrazí zpět. Druhý projde beamsplitterem a dopadne na pohyblivé zrcadlo (Z2). Oba paprsky dopadnou zpět na BS, kde interferují a výsledný paprsek je znovu zčásti odražen k detektoru a z části projde BS směrem ke zdroji. Intenzita výsledného paprsku je závislá na rozdílu vzdáleností obou zrcadel od BS.
+		\end{column}
+		\begin{column}{.3\textwidth}
+			\scalebox{0.75}{\begin{tikzpicture}
+					\draw[line width=0.5mm, red] (2,1) circle (0.5);
+					\node[red] at (2,1.7) {Zdroj};
+					\node at (4.45,3.3) {Z1};
+					\node at (7.4,0.75) {Z2};
 
-Beamsplitter (BS) rozděluje paprsek ze zdroje na dva stejné paprsky. Jeden je odražen na nepohyblivé zrcadlo (Z1), od kterého se odrazí zpět. Druhý projde BS a dopadne na pohyblivé zdrcadlo (Z2). Oba paprsky dopadnou zpět na BS, kde interferují a výsledný paprsek je znovu zčásti odražen k detektoru a z části projde BS směrem ke zdroji. Intenzita výsledného paprsku je závislá na rozdílu vzdáleností obou zrcadel od BS.
+					\draw[line width=0.5mm,gray,fill=gray] (5.7,2) -- (6,2) -- (4.3,0) -- (4,0) -- (5.7,2);
 
-\begin{tikzpicture}
-\draw[line width=0.5mm, red] (2,1) circle (0.5);
-\node[red] at (2,1.7) {Zdroj};
-\node at (4.45,3.3) {Z1};
-\node at (7.4,0.75) {Z2};
+					\draw[line width=0.5mm,green,fill=green] (5.7,3) -- (5.7,2.7) -- (3,2.7) -- (3,3) -- (5.7,3);
+					\draw[line width=0.5mm,green,fill=green] (6.7,2) -- (7,2) -- (7,-0.5) -- (6.7,-0.5) -- (6.7,2);
+					\draw[line width=0.5mm,black,<->] (6.2,-0.8) -- (7.5,-0.8);
 
-\draw[line width=0.5mm,gray,fill=gray] (5.7,2) -- (6,2) -- (4.3,0) -- (4,0) -- (5.7,2);
+					\draw[line width=0.5mm,red,->] (2,1) -- (4.8,1);
+					\draw[line width=0.5mm,red,<->] (4.8,2.7) -- (4.8,1);
+					\draw[line width=0.5mm,red,<->] (6.7,1) -- (5.15,1);
 
-\draw[line width=0.5mm,green,fill=green] (5.7,3) -- (5.7,2.7) -- (3,2.7) -- (3,3) -- (5.7,3);
-\draw[line width=0.5mm,green,fill=green] (6.7,2) -- (7,2) -- (7,-0.5) -- (6.7,-0.5) -- (6.7,2);
-\draw[line width=0.5mm,black,<->] (6.2,-0.8) -- (7.5,-0.8);
+					\draw[line width=0.8mm,red,->] (5.15,1) -- (5.15,-1.5);
 
-\draw[line width=0.5mm,red,->] (2,1) -- (4.8,1);
-\draw[line width=0.5mm,red,<->] (4.8,2.7) -- (4.8,1);
-\draw[line width=0.5mm,red,<->] (6.7,1) -- (5.15,1);
-
-\draw[line width=0.8mm,red,->] (5.15,1) -- (5.15,-1.5);
-
-\end{tikzpicture}
+			\end{tikzpicture}}
+		\end{column}
+	\end{columns}
 	\vfill
 }
 
@@ -478,7 +566,7 @@ Beamsplitter (BS) rozděluje paprsek ze zdroje na dva stejné paprsky. Jeden je 
 	\item Nejčastěji se využívá \emph{difrakční mřížka}.\footnote[frame]{\href{https://www.wikiskripta.eu/w/Optick\%C3\%A1_m\%C5\%99\%C3\%AD\%C5\%BEka}{Optická mřížka}}
 	\item Rozkládá dopadající světlo na vlnové délky.
 	\item Skládá se z velkého počtu štěrbin nebo vrypů, na nichž dochází k difrakci.
-	\item Hustota vrypů na mřížce je řádově stovky vrypů na centimetr.\footnote[frame]{\href{http://fyzika.jreichl.com/main.article/view/461-ohyb-svetla-na-mrizce}{Ohyb světla na mřížce}}
+	\item Hustota vrypů na mřížce je řádově stovky až tisíce vrypů na milimetr.\footnote[frame]{\href{http://fyzika.jreichl.com/main.article/view/461-ohyb-svetla-na-mrizce}{Ohyb světla na mřížce}}
 	\item Hustota vrypů a kvalita mřížky ovlivňuje rozlišení naměřeného spektra.
 	\end{itemize}
 	\begin{center}
@@ -502,7 +590,7 @@ Beamsplitter (BS) rozděluje paprsek ze zdroje na dva stejné paprsky. Jeden je 
 				\begin{itemize}
 					\item Vícekanálový detektor (Multi-channel).
 					\item Disperzní spektrometry.
-					\item Pracuje za laboratorní teploty nebo pro zvýšení citlivosti (snížení šumu) za teploty kapalného dusíku.
+					\item CCD detektory jsou zpravidla chlazeny Peltierovým článkem, případně kapalným dusíkem.
 					\item Parametry CCD (velikost pixelu) určují rozlišení naměřeného spektra.
 				\end{itemize}
 			\end{itemize}
@@ -527,8 +615,8 @@ Beamsplitter (BS) rozděluje paprsek ze zdroje na dva stejné paprsky. Jeden je 
 	\vfill
 	\begin{itemize}
 	\item První Ramanův mikroskop byl vyvinut v 70. letech 20. století.
-	\item Umožňuje nedestruktivně měřit spektra i od větších vzorků.
-	\item Umožňuje velmi přesně zaměření LASERu na požadované místo, příp. i mapování části povrchu vzorku.
+	\item Umožňuje nedestruktivně měřit i spektra velkých vzorků.
+	\item Umožňuje velmi přesně zaměření laseru na požadované místo, příp. i mapování části povrchu vzorku.
 	\item Velmi výhodný pro analýzu uměleckých předmětů, biologických vzorků, apod.
 	\end{itemize}
 	\begin{figure}
@@ -545,7 +633,7 @@ Beamsplitter (BS) rozděluje paprsek ze zdroje na dva stejné paprsky. Jeden je 
 	\begin{itemize}
 	\item Tento jev byl poprvé pozorován a interpretován roku 1977.
 	\item Technika, umožňující zesílení Ramanova rozptylu na molekulách adsorbovaných na kovovém substrátu.\footnote[frame]{\href{https://dx.doi.org/10.1016\%2F0009-2614\%2874\%2985388-1}{Raman Spectra of Pyridine Adsorbed at a Silver Electrode}}$^,$\footnote[frame]{\href{https://dx.doi.org/10.1021/jp970340f}{Surface-Enhanced Raman Spectra of Pyridine and Pyrazine Adsorbed on a Au(210) Single-Crystal Electrode}}
-	\item Zesílení signálu může být řádově až $10^{11}$, tzn. že teoreticky lze detekovat jedinou molekulu.\footnote[frame]{\href{https://dx.doi.org/10.1021/jp0687908}{Surface Enhanced Raman Scattering Enhancement Factors}}
+	\item Zesílení signálu může být řádově až $10^{11}$, za optimálních podmínek byla demonstrována detekce jednotlivých molekul.\footnote[frame]{\href{https://dx.doi.org/10.1021/jp0687908}{Surface Enhanced Raman Scattering Enhancement Factors}}
 	\item Prakticky je však hodnota zesílení spíše 10$^3$ až 10$^6$.
 	\item Jako substrát je nejvhodnější stříbro, ale využívá se také zlato a měď.\footnote[frame]{\href{https://doi.org/10.1021/acsnano.9b04224}{Present and Future of Surface-Enhanced Raman Scattering}}
 	\end{itemize}
@@ -559,7 +647,8 @@ Beamsplitter (BS) rozděluje paprsek ze zdroje na dva stejné paprsky. Jeden je 
 	\item Vznik SERS lze popsat dvěma mechanismy:
 	\begin{itemize}
 		\item Prvním je zesílené elektromagnetické pole vytvářené na povrchu kovu (\textit{povrchová plazmonová rezonance}). Nejvíce jsou zesilovány vibrační módy kolmé k povrchu kovu.
-		\item Druhý způsob zesílení spočívá v přenosu náboje mezi povrchem a molekulou analytu. Elektronické přechody mnoha komplexů s přenosem náboje jsou ve viditelné oblasti, takže dochází k rezonančnímu zesílení. Nejsilnější SERS vykazují molekuly s nepárovými elektrony nebo pí elektrony (aromatické sloučeniny). Tento efekt byl poprvé objeven u pyridinu.
+		\item Druhý způsob zesílení spočívá v přenosu náboje mezi povrchem a molekulou analytu. Elektronické přechody mnoha komplexů s přenosem náboje jsou ve viditelné oblasti, takže dochází k rezonančnímu zesílení. Molekuly obsahující rozsáhlé π-elektronové systémy obvykle poskytují výraznější SERS signál.
+		\item První experimentální pozorování SERS bylo provedeno na pyridinu adsorbovaném na stříbře.
 	\end{itemize}
 	\item Využití SERS v praxi
 	\begin{itemize}
@@ -603,39 +692,84 @@ Beamsplitter (BS) rozděluje paprsek ze zdroje na dva stejné paprsky. Jeden je 
 	\vfill
 }
 
+\section{IR vs Raman}
+\frame{
+	\frametitle{}
+	\vfill
+	\textbf{IR vs Raman}
+	\begin{columns}[T]
+		\column{0.5\textwidth}
+		\textbf{Infračervená spektroskopie (IR)}
+		\begin{itemize}
+			\item Měří absorpci infračerveného záření.
+			\item Vibrace musí způsobit změnu dipólového momentu.
+			\item Silné pásy:
+			\begin{itemize}
+				\item O--H
+				\item N--H
+				\item C=O
+			\end{itemize}
+			\item Velmi vhodná pro identifikaci polárních funkčních skupin.
+		\end{itemize}
+
+		\column{0.5\textwidth}
+		\textbf{Ramanova spektroskopie (RA)}
+		\begin{itemize}
+			\item Měří nepružný rozptyl laserového záření.
+			\item Vibrace musí způsobit změnu polarizovatelnosti.
+			\item Silné pásy:
+			\begin{itemize}
+				\item C=C
+				\item C$\equiv$C
+				\item symetrické vibrace
+			\end{itemize}
+			\item Velmi vhodná pro málo polární a vysoce symetrická uspořádání.
+		\end{itemize}
+	\end{columns}
+	\vfill
+}
+
 \section{Využití Ramanovy spektroskopie v praxi}
 \frame{
 	\frametitle{}
 	\vfill
-	\begin{itemize}
-	\item \emph{Farmacie, kosmetika}
-	\begin{itemize}
-	\item Rozložení sloučenin v tabletě
-	\item Složení a čistota práškových produktů
-	\item Krystalinita
-	\item Koncentrace aktivních látek
-	\end{itemize}
-	\item \emph{Geologie}
-	\begin{itemize}
-	\item Identifikace minerálů a drahokamů
-	\item Fázové přechody
-	\item Chování minerálů v extrémních podmínkách
-	\end{itemize}
-	\item \emph{Polovodičový průmysl}
-	\begin{itemize}
-	\item Čistota
-	\item Analýza defektů
-	\item Fotoluminiscenční mikroanalýza
-	\item Složení slitin
-	\end{itemize}
-	\item \emph{Přírodní vědy}
-	\begin{itemize}
-	\item Analýza DNA/RNA
-	\item Analýza jednotlivých buněk
-	\item Struktura kostí
-	\item Interakce léčiva s buňkami
-	\end{itemize}
-	\end{itemize}
+	\begin{columns}
+		\begin{column}{.5\textwidth}
+			\begin{itemize}
+				\item \emph{Farmacie, kosmetika}
+				\begin{itemize}
+					\item Rozložení sloučenin v tabletě
+					\item Složení a čistota práškových produktů
+					\item Krystalinita
+					\item Koncentrace aktivních látek
+				\end{itemize}
+				\item \emph{Geologie}
+				\begin{itemize}
+					\item Identifikace minerálů a drahokamů
+					\item Fázové přechody
+					\item Chování minerálů v extrémních podmínkách
+				\end{itemize}
+			\end{itemize}
+		\end{column}
+		\begin{column}{.5\textwidth}
+			\begin{itemize}
+			\item \emph{Polovodičový průmysl}
+			\begin{itemize}
+				\item Čistota
+				\item Analýza defektů
+				\item Fotoluminiscenční mikroanalýza
+				\item Složení slitin
+			\end{itemize}
+			\item \emph{Přírodní vědy}
+			\begin{itemize}
+				\item Analýza DNA/RNA
+				\item Analýza jednotlivých buněk
+				\item Struktura kostí
+				\item Interakce léčiva s buňkami
+			\end{itemize}
+			\end{itemize}
+		\end{column}
+	\end{columns}
 	\vfill
 }
 
@@ -686,7 +820,7 @@ Beamsplitter (BS) rozděluje paprsek ze zdroje na dva stejné paprsky. Jeden je 
 	\item Identifikaci organických pigmentů
 	\item Identifikaci pojiv a laků
 	\end{itemize}
-	\item Větší předměty, např. nástěnné malby lze analyzovat s využitím optických vláken, aniž by hrozilo jejich poškození.\footnote[frame]{\href{http://www.ncbi.nlm.nih.gov/pmc/articles/PMC1802725/}{Non-destructive analysis of museum objects by fibre-optic Raman spectroscopy}}
+	\item Větší předměty, např. nástěnné malby, lze analyzovat s využitím optických vláken, aniž by hrozilo jejich poškození.\footnote[frame]{\href{http://www.ncbi.nlm.nih.gov/pmc/articles/PMC1802725/}{Non-destructive analysis of museum objects by fibre-optic Raman spectroscopy}}
 	\end{itemize}
 	\vfill
 }
@@ -698,7 +832,7 @@ Beamsplitter (BS) rozděluje paprsek ze zdroje na dva stejné paprsky. Jeden je 
 	\begin{itemize}
 		\item Ramanovu spektroskopii lze využít jako neinvazivní, a přitom rychlou a přesnou metodu detekce karcinomu tlustého střeva.\footnote[frame]{\href{https://doi.org/10.1039/D3AN00103B}{\textit{In vivo} Raman spectroscopy in the diagnostics of colon cancer}}
 		\item Vzorky lze získat během diagnostické kolonoskopie.
-		\item Analýza spekter byla provedena s využitím metod strojového učení.
+		\item Rozdíly v relativních intenzitách těchto pásů umožňují pomocí chemometrických metod rozlišit zdravou a nádorovou tkáň.
 		\item Oproti běžným diagnostickým metodám lze získat i další informace o složení tkání.
 	\end{itemize}
 	\begin{center}
@@ -722,11 +856,11 @@ Beamsplitter (BS) rozděluje paprsek ze zdroje na dva stejné paprsky. Jeden je 
 	\begin{itemize}
 	\item S výhodou lze využít fluorescenční mikroskopy s Ramanovým spektrometrem.
 	\item Na obrázku jsou buňky primátů obarvené fluorescenčním barvivem DAPI a příslušné Ramanovo spektrum.\footnote[frame]{\href{https://chemagazin.cz/archiv-casopisu/chemagazin-5-2019}{CHEMAGAZIN, 2019, 5, 22-23}}
-	\item Pro excitaci byl využit laser o vlnové délce 532~nm. Byl získán obrázek plochy $50\times 40\ \mu $m.
+	\item Pro excitaci byl využit laser o vlnové délce 532~ nm. Byl získán obrázek plochy $50\times 40\ \mu $m.
 	\item Jádra buněk jsou znázorněna modře, jadérka zeleně a endoplazmatická retikula červeně.
 	\end{itemize}
 	\begin{figure}
-		\includegraphics[width=.6\textwidth]{../img/DAPI.png}
+		\includegraphics[width=.5\textwidth]{../img/DAPI.png}
 	\end{figure}
 	\vfill
 }
@@ -780,7 +914,7 @@ Beamsplitter (BS) rozděluje paprsek ze zdroje na dva stejné paprsky. Jeden je 
 	\frametitle{}
 	\vfill
 	\begin{center}
-	\adjincludegraphics[width=\textwidth]{../img/ifs28.jpg}
+	\adjincludegraphics[height=.8\textheight]{../img/ifs28.jpg}
 	\end{center}
 	\vfill
 }
@@ -790,7 +924,7 @@ Beamsplitter (BS) rozděluje paprsek ze zdroje na dva stejné paprsky. Jeden je 
 	\frametitle{}
 	\vfill
 	\begin{center}
-	\adjincludegraphics[width=\textwidth]{../img/equinox.jpg}
+	\adjincludegraphics[height=.8\textheight]{../img/equinox.jpg}
 	\end{center}
 	\vfill
 }
@@ -813,7 +947,7 @@ Beamsplitter (BS) rozděluje paprsek ze zdroje na dva stejné paprsky. Jeden je 
 \frame{
 	\frametitle{}
 	\vfill
-	\adjincludegraphics[scale=0.35]{../img/alpha.jpg}
+	\adjincludegraphics[height=.8\textheight]{../img/alpha.jpg}
 	\vfill
 }
 
@@ -824,7 +958,18 @@ Beamsplitter (BS) rozděluje paprsek ze zdroje na dva stejné paprsky. Jeden je 
 	\begin{itemize}
 	\item \url{https://ugv.sci.muni.cz/veda-a-vyzkum/sluzby/pracoviste-ramanovy-spektroskopie}
 	\end{itemize}
-	\adjincludegraphics[height=5cm]{../img/raman-geo.jpg}
+	\adjincludegraphics[height=.8\textheight]{../img/raman-geo.jpg}
+	\vfill
+}
+
+\frame{
+	\vfill
+	\centering \Huge
+	\textbf{Děkuji za pozornost} \\[2ex]
+
+	\large
+	Zdeněk Moravec\\
+	hugo@chemi.muni.cz \\
 	\vfill
 }
 
