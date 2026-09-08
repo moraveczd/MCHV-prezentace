@@ -3,3 +3,4 @@
 * [Webová stránka](https://is.muni.cz/www/moravec/c5060_metody_chemickeho_vyzkumu/)
 * Infračervená spektroskopie
 * Ramanova spektroskopie
+* Interpretace spekter
